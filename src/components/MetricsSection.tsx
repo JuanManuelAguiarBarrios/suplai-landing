@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import { TrendingDown, TrendingUp, ShieldCheck, Eye } from "lucide-react";
+import { TrendingDown, ShieldCheck, Eye } from "lucide-react";
 
 const metrics = [
   {
@@ -51,10 +51,7 @@ function AnimatedCounter({
 
   useEffect(() => {
     if (!isInView) return;
-    if (isZero) {
-      setCount(0);
-      return;
-    }
+    if (isZero) return;
 
     let start = 0;
     const duration = 2200;
