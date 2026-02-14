@@ -45,13 +45,13 @@ export default function SolutionSection() {
       <div className="section-divider mb-32" />
 
       {/* Background accent */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[400px] bg-[rgba(45,68,204,0.08)] rounded-full blur-[140px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[400px] bg-[rgba(45,68,204,0.06)] rounded-full blur-[160px]" />
 
       <div className="relative max-w-5xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+          animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-20"
         >
           <div className="badge mx-auto mb-6">La solución</div>
@@ -64,9 +64,9 @@ export default function SolutionSection() {
         {/* Flow steps */}
         <div className="relative">
           {/* Connecting line - desktop */}
-          <div className="absolute top-[52px] left-[12.5%] right-[12.5%] h-px bg-[rgba(45,68,204,0.1)] hidden lg:block" />
+          <div className="absolute top-[56px] left-[12.5%] right-[12.5%] h-px bg-[rgba(45,68,204,0.08)] hidden lg:block" />
           <motion.div
-            className="absolute top-[52px] left-[12.5%] h-px bg-gradient-to-r from-[rgb(45,68,204)] to-[rgb(115,175,255)] hidden lg:block origin-left"
+            className="absolute top-[56px] left-[12.5%] h-[2px] hidden lg:block origin-left rounded-full"
             initial={{ scaleX: 0 }}
             animate={
               isInView
@@ -75,7 +75,9 @@ export default function SolutionSection() {
             }
             style={{ width: "75%" }}
             transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
-          />
+          >
+            <div className="w-full h-full shimmer rounded-full" />
+          </motion.div>
 
           <div className="grid lg:grid-cols-4 gap-10 lg:gap-6">
             {steps.map((step, idx) => {
@@ -84,12 +86,12 @@ export default function SolutionSection() {
               return (
                 <motion.div
                   key={idx}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
+                  animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
                   transition={{
-                    duration: 0.6,
+                    duration: 0.7,
                     delay: 0.15 + idx * 0.12,
-                    ease: [0.25, 0.46, 0.45, 0.94],
+                    ease: [0.22, 1, 0.36, 1],
                   }}
                   className="flex flex-col items-center text-center"
                 >
@@ -97,24 +99,27 @@ export default function SolutionSection() {
                   <motion.div
                     animate={
                       isCurrent
-                        ? { scale: [1, 1.08, 1] }
+                        ? { scale: [1, 1.06, 1] }
                         : { scale: 1 }
                     }
-                    transition={{ duration: 1.5, repeat: isCurrent ? Infinity : 0 }}
-                    className={`relative w-[104px] h-[104px] rounded-3xl flex items-center justify-center mb-7 transition-all duration-700 ${
+                    transition={{ duration: 1.8, repeat: isCurrent ? Infinity : 0 }}
+                    className={`relative w-[112px] h-[112px] rounded-3xl flex items-center justify-center mb-7 transition-all duration-700 ${
                       isActive
-                        ? "bg-gradient-to-br from-[rgba(45,68,204,0.2)] to-[rgba(115,175,255,0.2)] border border-[rgba(45,68,204,0.34)]"
-                        : "bg-[rgba(45,68,204,0.05)] border border-[rgba(45,68,204,0.18)]"
+                        ? "bg-gradient-to-br from-[rgba(45,68,204,0.12)] to-[rgba(115,175,255,0.12)] border border-[rgba(45,68,204,0.25)]"
+                        : "bg-[rgba(45,68,204,0.03)] border border-[rgba(45,68,204,0.1)]"
                     }`}
                   >
                     {isCurrent && (
-                      <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[rgba(45,68,204,0.1)] to-[rgba(115,175,255,0.1)] animate-pulse" />
+                      <>
+                        <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[rgba(45,68,204,0.08)] to-[rgba(115,175,255,0.08)] animate-pulse" />
+                        <div className="absolute -inset-1 rounded-[28px] bg-gradient-to-br from-[rgba(45,68,204,0.15)] to-[rgba(115,175,255,0.15)] blur-md" />
+                      </>
                     )}
                     <step.icon
                       size={32}
                       strokeWidth={1.5}
                       className={`relative z-10 transition-colors duration-500 ${
-                        isActive ? "text-[rgb(45,68,204)]" : "text-slate-500"
+                        isActive ? "text-[rgb(45,68,204)]" : "text-slate-400"
                       }`}
                     />
                   </motion.div>
@@ -122,7 +127,7 @@ export default function SolutionSection() {
                   {/* Step number */}
                   <span
                     className={`text-[10px] font-bold uppercase tracking-[0.15em] mb-2 transition-colors duration-500 ${
-                      isActive ? "text-[rgb(45,68,204)]" : "text-slate-400"
+                      isActive ? "text-[rgb(45,68,204)]" : "text-slate-300"
                     }`}
                   >
                     Paso {idx + 1}
@@ -130,7 +135,7 @@ export default function SolutionSection() {
 
                   <h3
                     className={`text-[15px] font-semibold mb-2 transition-colors duration-500 ${
-                      isActive ? "text-slate-900" : "text-slate-500"
+                      isActive ? "text-slate-900" : "text-slate-400"
                     }`}
                   >
                     {step.title}

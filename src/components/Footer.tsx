@@ -12,19 +12,19 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative py-16 px-6 lg:px-8">
+    <footer className="relative py-20 px-6 lg:px-8">
       <div className="section-divider mb-16" />
 
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo */}
-          <a href="#" className="flex items-center">
+          <a href="#" className="flex items-center group">
             <Image
               src="/suplai-logo-black-text.png"
               alt="Suplai"
               width={436}
               height={126}
-              className="h-9 w-auto shrink-0"
+              className="h-9 w-auto shrink-0 group-hover:opacity-80 transition-opacity duration-300"
             />
           </a>
 
@@ -34,7 +34,7 @@ export default function Footer() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-[12px] text-slate-500 hover:text-[rgb(45,68,204)] transition-colors duration-300"
+                className="nav-link text-[12px] text-slate-400 hover:text-[rgb(45,68,204)] transition-colors duration-300 pb-0.5"
               >
                 {link.label}
               </a>
@@ -42,7 +42,7 @@ export default function Footer() {
           </div>
 
           {/* Copyright */}
-          <p className="text-[11px] text-slate-400">
+          <p className="text-[11px] text-slate-300">
             © {new Date().getFullYear()} Suplai. Todos los derechos reservados.
           </p>
         </div>

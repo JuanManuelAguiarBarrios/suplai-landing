@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { motion, useInView, useSpring, useTransform } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
 import { TrendingDown, ShieldCheck, Eye } from "lucide-react";
 
 const metrics = [
@@ -47,33 +47,23 @@ function AnimatedCounter({
   isZero?: boolean;
   isInView: boolean;
 }) {
-  const [count, setCount] = useState(0);
+  const springValue = useSpring(0, { stiffness: 50, damping: 20, mass: 1 });
+  const display = useTransform(springValue, (v) => Math.round(v));
+  const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    if (!isInView) return;
-    if (isZero) return;
+    if (!isInView || isZero) return;
+    springValue.set(value);
+  }, [isInView, value, isZero, springValue]);
 
-    let start = 0;
-    const duration = 2200;
-    const steps = duration / 16;
-    const increment = value / steps;
-
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= value) {
-        setCount(value);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(start));
-      }
-    }, 16);
-
-    return () => clearInterval(timer);
-  }, [isInView, value, isZero]);
+  useEffect(() => {
+    const unsubscribe = display.on("change", (v) => setCurrent(v));
+    return unsubscribe;
+  }, [display]);
 
   return (
     <span className="text-5xl md:text-6xl lg:text-7xl font-bold gradient-text tabular-nums">
-      {isZero ? "0" : count}
+      {isZero ? "0" : current}
       {suffix}
     </span>
   );
@@ -88,13 +78,13 @@ export default function MetricsSection() {
       <div className="section-divider mb-32" />
 
       {/* Accent gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[rgba(115,175,255,0.16)] to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[rgba(115,175,255,0.08)] to-transparent" />
 
       <div className="relative max-w-6xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+          animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-20"
         >
           <div className="badge mx-auto mb-6">Resultados</div>
@@ -107,20 +97,20 @@ export default function MetricsSection() {
           {metrics.map((metric, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
+              animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
               transition={{
-                duration: 0.6,
+                duration: 0.7,
                 delay: 0.15 + idx * 0.1,
-                ease: [0.25, 0.46, 0.45, 0.94],
+                ease: [0.22, 1, 0.36, 1],
               }}
               className="text-center"
             >
-              <div className="w-12 h-12 rounded-2xl bg-[rgba(45,68,204,0.08)] border border-[rgba(45,68,204,0.16)] flex items-center justify-center mx-auto mb-6">
+              <div className="w-12 h-12 rounded-2xl bg-[rgba(45,68,204,0.05)] border border-[rgba(45,68,204,0.1)] flex items-center justify-center mx-auto mb-6 hover:bg-[rgba(45,68,204,0.1)] hover:scale-110 transition-all duration-500">
                 <metric.icon
                   size={24}
                   strokeWidth={1.5}
-                  className="text-[rgb(45,68,204)]"
+                  className="text-[rgb(45,68,204)] opacity-70"
                 />
               </div>
               <div className="mb-3">
@@ -131,6 +121,8 @@ export default function MetricsSection() {
                   isInView={isInView}
                 />
               </div>
+              {/* Decorative line under number */}
+              <div className="w-12 h-0.5 mx-auto mb-4 rounded-full bg-gradient-to-r from-[rgba(45,68,204,0.2)] via-[rgba(115,175,255,0.3)] to-[rgba(45,68,204,0.2)]" />
               <p className="text-[13px] text-slate-500 font-medium">
                 {metric.prefix} {metric.label}
               </p>

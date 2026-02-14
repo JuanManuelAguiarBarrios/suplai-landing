@@ -39,9 +39,9 @@ export default function ProblemSection() {
     <section id="problema" className="relative py-32 px-6 lg:px-8" ref={ref}>
       <div className="max-w-6xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+          animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-20"
         >
           <div className="badge mx-auto mb-6">El problema</div>
@@ -55,20 +55,20 @@ export default function ProblemSection() {
           {problems.map((problem, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              initial={{ opacity: 0, y: 40, filter: "blur(6px)" }}
+              animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
               transition={{
-                duration: 0.6,
-                delay: 0.15 + idx * 0.1,
-                ease: [0.25, 0.46, 0.45, 0.94],
+                duration: 0.7,
+                delay: 0.15 + idx * 0.12,
+                ease: [0.22, 1, 0.36, 1],
               }}
               className="gradient-border p-7 group cursor-default"
             >
-              <div className="w-11 h-11 rounded-xl bg-[rgba(45,68,204,0.1)] flex items-center justify-center mb-5 group-hover:bg-[rgba(45,68,204,0.12)] transition-all duration-400">
+              <div className="w-11 h-11 rounded-xl bg-[rgba(45,68,204,0.06)] flex items-center justify-center mb-5 group-hover:bg-[rgba(45,68,204,0.12)] group-hover:scale-110 transition-all duration-500">
                 <problem.icon
                   size={22}
                   strokeWidth={1.5}
-                  className="text-slate-500 group-hover:text-[rgb(45,68,204)] transition-colors duration-400"
+                  className="text-slate-400 group-hover:text-[rgb(45,68,204)] transition-colors duration-500"
                 />
               </div>
               <h3 className="text-[15px] font-semibold text-slate-900 mb-2.5 leading-snug">

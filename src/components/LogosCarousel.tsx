@@ -23,11 +23,11 @@ export default function LogosCarousel() {
       <div className="section-divider mb-16" />
 
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : {}}
+        initial={{ opacity: 0, y: 10 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8 }}
       >
-        <p className="text-center text-xs font-medium text-slate-500 uppercase tracking-[0.2em] mb-10">
+        <p className="text-center text-xs font-medium text-slate-400 uppercase tracking-[0.2em] mb-10">
           Empresas que confían en la automatización
         </p>
 
@@ -36,11 +36,11 @@ export default function LogosCarousel() {
             {[...logos, ...logos].map((logo, idx) => (
               <div
                 key={idx}
-                className="flex-shrink-0 mx-10 flex items-center justify-center"
+                className="flex-shrink-0 mx-10 flex items-center justify-center group"
               >
-                <div className="flex items-center gap-2.5 opacity-30 hover:opacity-60 transition-opacity duration-500">
-                  <div className="w-8 h-8 rounded-lg bg-[rgba(45,68,204,0.1)] border border-[rgba(45,68,204,0.18)] flex items-center justify-center">
-                    <span className="text-[10px] font-bold text-slate-600">
+                <div className="flex items-center gap-2.5 opacity-25 group-hover:opacity-60 transition-all duration-500 group-hover:scale-105">
+                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[rgba(45,68,204,0.08)] to-[rgba(115,175,255,0.08)] border border-[rgba(45,68,204,0.12)] flex items-center justify-center group-hover:border-[rgba(45,68,204,0.25)] transition-colors duration-500">
+                    <span className="text-[10px] font-bold text-slate-500 group-hover:text-[rgb(45,68,204)] transition-colors duration-500">
                       {logo.charAt(0)}
                     </span>
                   </div>

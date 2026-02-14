@@ -28,9 +28,9 @@ export default function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-2xl border-b border-[rgba(45,68,204,0.16)] shadow-[0_10px_28px_rgba(45,68,204,0.16)]"
+          ? "bg-white/85 backdrop-blur-2xl border-b border-[rgba(45,68,204,0.1)] shadow-[0_8px_32px_rgba(45,68,204,0.1)]"
           : "bg-transparent"
       }`}
     >
@@ -38,14 +38,16 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 lg:h-[72px]">
           {/* Logo */}
           <a href="#" className="flex items-center group">
-            <Image
-              src="/suplai-logo-black-text.png"
-              alt="Suplai"
-              width={436}
-              height={126}
-              priority
-              className="h-11 w-auto shrink-0"
-            />
+            <motion.div whileHover={{ scale: 1.03 }} transition={{ type: "spring", stiffness: 400, damping: 25 }}>
+              <Image
+                src="/suplai-logo-black-text.png"
+                alt="Suplai"
+                width={436}
+                height={126}
+                priority
+                className="h-11 w-auto shrink-0"
+              />
+            </motion.div>
           </a>
 
           {/* Desktop Links */}
@@ -54,7 +56,7 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="relative px-4 py-2 text-[13px] font-medium text-slate-600 hover:text-[rgb(45,68,204)] transition-colors duration-300 rounded-lg hover:bg-[rgba(115,175,255,0.18)]"
+                className="nav-link relative px-4 py-2 text-[13px] font-medium text-slate-500 hover:text-[rgb(45,68,204)] transition-colors duration-300 rounded-lg hover:bg-[rgba(115,175,255,0.1)]"
               >
                 {link.label}
               </a>
@@ -87,26 +89,32 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="lg:hidden bg-white/95 backdrop-blur-2xl border-b border-[rgba(45,68,204,0.16)]"
+            className="lg:hidden bg-white/95 backdrop-blur-2xl border-b border-[rgba(45,68,204,0.12)]"
           >
             <div className="px-6 py-5 flex flex-col gap-1">
-              {navLinks.map((link) => (
-                <a
+              {navLinks.map((link, idx) => (
+                <motion.a
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.05, duration: 0.3 }}
                   className="text-sm text-slate-600 hover:text-[rgb(45,68,204)] transition-colors py-2.5 px-3 rounded-lg hover:bg-[rgba(115,175,255,0.18)]"
                 >
                   {link.label}
-                </a>
+                </motion.a>
               ))}
-              <a
+              <motion.a
                 href="#cta"
                 onClick={() => setMobileOpen(false)}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.25, duration: 0.3 }}
                 className="glow-button text-sm font-semibold text-white px-5 py-2.5 rounded-xl text-center mt-3"
               >
                 Solicitar demo
-              </a>
+              </motion.a>
             </div>
           </motion.div>
         )}
