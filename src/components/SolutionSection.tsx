@@ -42,7 +42,7 @@ export default function SolutionSection() {
   }, [isInView]);
 
   return (
-    <section id="solucion" className="relative py-28 md:py-32 px-6 lg:px-8 bg-white" ref={ref}>
+    <section id="solucion" className="deferred-section relative py-28 md:py-32 px-6 lg:px-8 bg-white" ref={ref}>
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}

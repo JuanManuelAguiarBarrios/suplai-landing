@@ -76,7 +76,7 @@ export default function MetricsSection() {
   return (
     <section
       id="metricas"
-      className="relative py-28 md:py-32 px-6 lg:px-8 bg-[#07132e] overflow-hidden"
+      className="deferred-section relative py-28 md:py-32 px-6 lg:px-8 bg-[#07132e] overflow-hidden"
       ref={ref}
     >
       <div className="absolute inset-0 pointer-events-none">

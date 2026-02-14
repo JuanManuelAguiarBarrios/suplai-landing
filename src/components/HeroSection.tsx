@@ -22,7 +22,7 @@ export default function HeroSection() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden grain-overlay">
+    <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Animated gradient orbs - more expressive */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -30,52 +30,26 @@ export default function HeroSection() {
             shouldReduceMotion
               ? undefined
               : {
-                  x: [0, 50, -30, 0],
-                  y: [0, -60, 30, 0],
-                  scale: [1, 1.2, 0.9, 1],
+                  x: [0, 28, -18, 0],
+                  y: [0, -24, 14, 0],
+                  scale: [1, 1.08, 0.96, 1],
                 }
           }
-          transition={shouldReduceMotion ? undefined : { duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-36 left-1/4 w-[700px] h-[700px] bg-[rgba(45,68,204,0.08)] rounded-full blur-[120px]"
+          transition={shouldReduceMotion ? undefined : { duration: 26, repeat: Infinity, ease: "linear" }}
+          className="absolute -top-32 left-1/4 w-[560px] h-[560px] bg-[rgba(45,68,204,0.08)] rounded-full blur-[88px]"
         />
         <motion.div
           animate={
             shouldReduceMotion
               ? undefined
               : {
-                  x: [0, -60, 40, 0],
-                  y: [0, 40, -40, 0],
-                  scale: [1, 0.85, 1.2, 1],
+                  x: [0, -30, 20, 0],
+                  y: [0, 16, -18, 0],
+                  scale: [1, 0.92, 1.06, 1],
                 }
           }
-          transition={shouldReduceMotion ? undefined : { duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute -bottom-44 right-1/4 w-[620px] h-[620px] bg-[rgba(115,175,255,0.1)] rounded-full blur-[105px]"
-        />
-        <motion.div
-          animate={
-            shouldReduceMotion
-              ? undefined
-              : {
-                  x: [0, 30, -40, 0],
-                  y: [0, -30, 50, 0],
-                }
-          }
-          transition={shouldReduceMotion ? undefined : { duration: 18, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/3 right-0 w-[420px] h-[420px] bg-[rgba(90,120,240,0.07)] rounded-full blur-[90px]"
-        />
-        {/* Extra decorative orb */}
-        <motion.div
-          animate={
-            shouldReduceMotion
-              ? undefined
-              : {
-                  x: [0, -20, 30, 0],
-                  y: [0, 40, -20, 0],
-                  scale: [1, 1.1, 0.95, 1],
-                }
-          }
-          transition={shouldReduceMotion ? undefined : { duration: 22, repeat: Infinity, ease: "linear" }}
-          className="absolute top-0 right-1/3 w-[260px] h-[260px] bg-[rgba(45,68,204,0.05)] rounded-full blur-[72px]"
+          transition={shouldReduceMotion ? undefined : { duration: 30, repeat: Infinity, ease: "linear" }}
+          className="absolute -bottom-40 right-1/4 w-[520px] h-[520px] bg-[rgba(115,175,255,0.1)] rounded-full blur-[84px]"
         />
       </div>
 
@@ -136,7 +110,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.8, delay: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-lg md:text-xl text-slate-500 leading-relaxed mb-10 font-light"
+            className="text-lg md:text-xl text-slate-500 leading-relaxed mb-10 font-normal"
           >
             Suplai llama automáticamente a los conductores, interpreta sus
             respuestas y actualiza tu sistema en tiempo real.

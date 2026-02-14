@@ -42,7 +42,7 @@ export default function AudienceSection() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="relative py-28 md:py-32 px-6 lg:px-8 bg-white" ref={ref}>
+    <section className="deferred-section relative py-28 md:py-32 px-6 lg:px-8 bg-white" ref={ref}>
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-11 lg:gap-12 items-start">
           <motion.div

@@ -202,7 +202,7 @@ export default function DemoSection() {
   ];
 
   return (
-    <section id="demo" className="relative py-32 px-6 lg:px-8" ref={ref}>
+    <section id="demo" className="deferred-section relative py-32 px-6 lg:px-8" ref={ref}>
       <div className="section-divider mb-32" />
 
       <div className="max-w-5xl mx-auto">

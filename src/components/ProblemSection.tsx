@@ -38,7 +38,7 @@ export default function ProblemSection() {
   return (
     <section
       id="problema"
-      className="relative py-28 md:py-32 px-6 lg:px-8 bg-[linear-gradient(180deg,#ffffff_0%,#f7f9ff_100%)]"
+      className="deferred-section relative py-28 md:py-32 px-6 lg:px-8 bg-[linear-gradient(180deg,#ffffff_0%,#f7f9ff_100%)]"
       ref={ref}
     >
       <div className="max-w-7xl mx-auto">

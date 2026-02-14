@@ -12,7 +12,7 @@ export default function CTASection() {
   return (
     <section
       id="cta"
-      className="relative py-28 md:py-32 px-6 lg:px-8 overflow-hidden bg-[#08132f]"
+      className="deferred-section relative py-28 md:py-32 px-6 lg:px-8 overflow-hidden bg-[#08132f]"
       ref={ref}
     >
       <div className="absolute inset-0 pointer-events-none">

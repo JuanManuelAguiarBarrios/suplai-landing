@@ -76,7 +76,7 @@ export default function CapabilitiesCarouselSection() {
   return (
     <section
       id="producto"
-      className="relative py-28 md:py-32 overflow-hidden bg-[#070d22]"
+      className="deferred-section relative py-28 md:py-32 overflow-hidden bg-[#070d22]"
     >
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-40 -left-20 w-[520px] h-[520px] rounded-full bg-[rgba(45,68,204,0.32)] blur-[120px]" />

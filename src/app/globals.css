@@ -69,7 +69,6 @@ h6 {
     rgb(45, 68, 204) 100%
   );
   background-size: 200% 200%;
-  animation: gradient-text-shift 6s ease-in-out infinite;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -160,7 +159,6 @@ h6 {
   position: relative;
   background: linear-gradient(135deg, rgb(45, 68, 204) 0%, rgb(80, 120, 240) 50%, rgb(115, 175, 255) 100%);
   background-size: 200% 200%;
-  animation: button-gradient 4s ease-in-out infinite;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
   box-shadow:
@@ -194,7 +192,6 @@ h6 {
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
   transition: none;
-  animation: shimmer-button 3s ease-in-out infinite;
 }
 
 @keyframes shimmer-button {
@@ -205,6 +202,7 @@ h6 {
 
 .glow-button:hover {
   transform: translateY(-3px) scale(1.02);
+  animation: button-gradient 3s ease-in-out infinite;
   box-shadow:
     0 16px 40px rgba(45, 68, 204, 0.35),
     0 4px 12px rgba(45, 68, 204, 0.2);
@@ -212,6 +210,10 @@ h6 {
 
 .glow-button:hover::before {
   opacity: 0.6;
+}
+
+.glow-button:hover::after {
+  animation: shimmer-button 1.3s ease-in-out;
 }
 
 /* Secondary button (Enhanced) */
@@ -401,7 +403,7 @@ h6 {
 }
 
 .animate-scroll-left {
-  animation: scroll-left 30s linear infinite;
+  animation: scroll-left 44s linear infinite;
 }
 
 .fade-mask {
@@ -448,6 +450,11 @@ h6 {
   animation: line-flow 4s ease-in-out infinite;
 }
 
+.deferred-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 900px;
+}
+
 /* ═══════════════════════════════════════════
    WEBKIT SCROLLBAR
    ═══════════════════════════════════════════ */
@@ -481,5 +488,11 @@ h6 {
   .animate-line-flow,
   .waveform-bar {
     animation: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .animate-scroll-left {
+    animation-duration: 56s;
   }
 }

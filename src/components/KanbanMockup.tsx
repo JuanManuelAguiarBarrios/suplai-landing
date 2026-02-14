@@ -1,7 +1,7 @@
 "use client";
 
-import { m as motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { m as motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { Phone, Truck, CheckCircle2, Clock } from "lucide-react";
 
 const columns = [
@@ -28,49 +28,59 @@ export default function KanbanMockup() {
   const [cards, setCards] = useState(initialCards);
   const [callingCard, setCallingCard] = useState<string | null>(null);
   const [showWave, setShowWave] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
+  const timeoutsRef = useRef<Array<ReturnType<typeof setTimeout>>>([]);
 
   useEffect(() => {
+    if (shouldReduceMotion) return;
+
     const runCycle = () => {
       const card = initialCards.filter((c) => c.column === "pending")[0];
       setCallingCard(card.id);
       setShowWave(true);
 
-      setTimeout(() => {
-        setCards((prev) =>
-          prev.map((c) =>
-            c.id === card.id ? { ...c, column: "transit" } : c
-          )
-        );
-        setCallingCard(null);
-        setShowWave(false);
-      }, 2500);
+      timeoutsRef.current.push(
+        setTimeout(() => {
+          setCards((prev) =>
+            prev.map((c) =>
+              c.id === card.id ? { ...c, column: "transit" } : c
+            )
+          );
+          setCallingCard(null);
+          setShowWave(false);
+        }, 2500)
+      );
 
-      setTimeout(() => {
-        setCards((prev) =>
-          prev.map((c) =>
-            c.id === card.id ? { ...c, column: "delivered" } : c
-          )
-        );
-      }, 5000);
+      timeoutsRef.current.push(
+        setTimeout(() => {
+          setCards((prev) =>
+            prev.map((c) =>
+              c.id === card.id ? { ...c, column: "delivered" } : c
+            )
+          );
+        }, 5000)
+      );
 
-      setTimeout(() => {
-        setCards(initialCards);
-      }, 8000);
+      timeoutsRef.current.push(
+        setTimeout(() => {
+          setCards(initialCards);
+        }, 8000)
+      );
     };
 
-    const firstTimeout = setTimeout(runCycle, 1500);
-    const interval = setInterval(runCycle, 9000);
+    // Run a single cycle for visual context without a permanent loop.
+    timeoutsRef.current.push(setTimeout(runCycle, 1200));
 
     return () => {
-      clearInterval(interval);
-      clearTimeout(firstTimeout);
+      timeoutsRef.current.forEach((timeout) => clearTimeout(timeout));
+      timeoutsRef.current = [];
     };
-  }, []);
+  }, [shouldReduceMotion]);
 
   return (
     <div className="relative">
       {/* Outer glow */}
-      <div className="absolute -inset-4 bg-gradient-to-r from-[rgba(45,68,204,0.1)] via-[rgba(115,175,255,0.12)] to-[rgba(45,68,204,0.1)] rounded-3xl blur-2xl" />
+      <div className="absolute -inset-4 bg-gradient-to-r from-[rgba(45,68,204,0.1)] via-[rgba(115,175,255,0.12)] to-[rgba(45,68,204,0.1)] rounded-3xl blur-xl" />
 
       <div className="relative glass-card p-5 md:p-6">
         {/* Top bar */}
@@ -117,7 +127,7 @@ export default function KanbanMockup() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
-                delay: 0.6 + colIdx * 0.12,
+                delay: 0.45 + colIdx * 0.08,
                 ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
               }}
               className="bg-[rgba(45,68,204,0.03)] rounded-xl p-2.5"
@@ -143,13 +153,13 @@ export default function KanbanMockup() {
                       <motion.div
                         key={card.id}
                         layout
-                        initial={{ opacity: 0, scale: 0.85 }}
+                        initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.85 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
                         transition={{
                           type: "spring",
-                          stiffness: 400,
-                          damping: 28,
+                          stiffness: 360,
+                          damping: 30,
                         }}
                         className={`p-2.5 rounded-lg transition-all duration-300 ${
                           callingCard === card.id
