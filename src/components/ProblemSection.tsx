@@ -38,17 +38,18 @@ export default function ProblemSection() {
   return (
     <section
       id="problema"
-      className="deferred-section relative py-28 md:py-32 px-6 lg:px-8 bg-[linear-gradient(180deg,#ffffff_0%,#f7f9ff_100%)]"
+      className="deferred-section relative py-28 md:py-32 px-6 lg:px-8 bg-[linear-gradient(180deg,#ffffff_0%,#f7f9ff_72%,#ffffff_100%)]"
       ref={ref}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgba(45,68,204,0.03)_1px,transparent_1px),linear-gradient(rgba(45,68,204,0.03)_1px,transparent_1px)] bg-[size:42px_42px] opacity-55" />
+      <div className="relative max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-[0.92fr_1.08fr] gap-12 lg:gap-14 items-start">
           <motion.div
             initial={{ opacity: 0, y: 26, filter: "blur(8px)" }}
             animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="badge mb-6">El problema</div>
+            <div className="industrial-kicker mb-6">Diagnóstico operativo</div>
             <h2 className="text-3xl md:text-4xl lg:text-[2.8rem] leading-[1.08] tracking-[-0.02em] text-slate-950 mb-6">
               Los seguimientos manuales estan <span className="gradient-text">frenando tu operacion</span>
             </h2>
@@ -57,7 +58,7 @@ export default function ProblemSection() {
             </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
+          <div className="grid sm:grid-cols-2 gap-4 md:gap-5 relative">
             {problems.map((problem, idx) => (
               <motion.article
                 key={problem.title}
@@ -68,9 +69,10 @@ export default function ProblemSection() {
                   delay: 0.12 + idx * 0.1,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="relative rounded-2xl border border-[rgba(45,68,204,0.14)] bg-white p-6 shadow-[0_14px_26px_rgba(45,68,204,0.07)] overflow-hidden"
+                className="relative rounded-2xl border border-[rgba(45,68,204,0.18)] bg-white/95 p-6 shadow-[0_14px_26px_rgba(45,68,204,0.07)] overflow-hidden"
               >
                 <div className="absolute top-0 left-0 h-full w-1 bg-[linear-gradient(180deg,rgb(45,68,204),rgb(115,175,255))]" />
+                <div className="absolute top-0 right-0 h-8 w-8 bg-[rgba(45,68,204,0.06)] border-l border-b border-[rgba(45,68,204,0.12)] rounded-bl-xl" />
                 <div className="flex items-center justify-between mb-4">
                   <div className="w-11 h-11 rounded-xl border border-[rgba(45,68,204,0.14)] bg-[rgba(45,68,204,0.06)] flex items-center justify-center">
                     <problem.icon size={20} strokeWidth={1.6} className="text-[rgb(45,68,204)]" />

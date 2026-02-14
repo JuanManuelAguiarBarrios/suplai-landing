@@ -30,8 +30,8 @@ export default function Navbar() {
       transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
         scrolled
-          ? "bg-white/85 backdrop-blur-2xl border-b border-[rgba(45,68,204,0.1)] shadow-[0_8px_32px_rgba(45,68,204,0.1)]"
-          : "bg-transparent"
+          ? "bg-white/90 backdrop-blur-2xl border-b border-[rgba(45,68,204,0.12)] shadow-[0_8px_32px_rgba(45,68,204,0.1)]"
+          : "bg-white/45 backdrop-blur-md"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -57,7 +57,7 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="nav-link relative px-4 py-2 text-[13px] font-medium text-slate-500 hover:text-[rgb(45,68,204)] transition-colors duration-300 rounded-lg hover:bg-[rgba(115,175,255,0.1)]"
+                className="nav-link relative px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.08em] text-slate-500 hover:text-[rgb(45,68,204)] transition-colors duration-300 rounded-lg hover:bg-[rgba(115,175,255,0.1)]"
               >
                 {link.label}
               </a>

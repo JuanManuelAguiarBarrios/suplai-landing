@@ -76,7 +76,7 @@ export default function MetricsSection() {
   return (
     <section
       id="metricas"
-      className="deferred-section relative py-28 md:py-32 px-6 lg:px-8 bg-[#07132e] overflow-hidden"
+      className="deferred-section relative py-28 md:py-32 px-6 lg:px-8 bg-[linear-gradient(180deg,#07132e_0%,#081a3c_52%,#061127_100%)] overflow-hidden"
       ref={ref}
     >
       <div className="absolute inset-0 pointer-events-none">
@@ -92,7 +92,7 @@ export default function MetricsSection() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-14"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[11px] tracking-[0.16em] uppercase font-semibold text-white/80 mb-6">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[10px] tracking-[0.16em] uppercase font-semibold text-white/80 mb-6">
             Resultados
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-[2.8rem] tracking-[-0.02em] text-white mb-4">
@@ -114,8 +114,9 @@ export default function MetricsSection() {
                 delay: 0.1 + idx * 0.09,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="rounded-2xl border border-white/18 bg-white/8 backdrop-blur-xl p-5 md:p-6"
+              className="relative overflow-hidden rounded-2xl border border-white/18 bg-white/8 backdrop-blur-xl p-5 md:p-6"
             >
+              <div className="absolute top-0 left-0 right-0 h-0.5 bg-[linear-gradient(90deg,rgba(115,175,255,0.2),rgba(115,175,255,0.95),rgba(115,175,255,0.2))]" />
               <div className="w-11 h-11 rounded-xl border border-white/24 bg-white/10 flex items-center justify-center mb-6">
                 <metric.icon size={20} className="text-[rgb(161,203,255)]" />
               </div>

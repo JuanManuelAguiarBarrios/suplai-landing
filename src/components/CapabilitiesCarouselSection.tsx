@@ -76,7 +76,7 @@ export default function CapabilitiesCarouselSection() {
   return (
     <section
       id="producto"
-      className="deferred-section relative py-28 md:py-32 overflow-hidden bg-[#070d22]"
+      className="deferred-section relative py-28 md:py-32 overflow-hidden bg-[linear-gradient(180deg,#060d22_0%,#071633_52%,#061127_100%)]"
     >
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-40 -left-20 w-[520px] h-[520px] rounded-full bg-[rgba(45,68,204,0.32)] blur-[120px]" />
@@ -99,7 +99,17 @@ export default function CapabilitiesCarouselSection() {
               robusta: menos tareas manuales, mejor trazabilidad y decisiones
               más rápidas en campo.
             </p>
-
+            <div className="flex flex-wrap gap-2.5">
+              <span className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[10px] uppercase tracking-[0.12em] text-white/80">
+                Omnicanal
+              </span>
+              <span className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[10px] uppercase tracking-[0.12em] text-white/80">
+                Trazabilidad
+              </span>
+              <span className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[10px] uppercase tracking-[0.12em] text-white/80">
+                Integración API
+              </span>
+            </div>
 
           </div>
 
@@ -121,6 +131,7 @@ export default function CapabilitiesCarouselSection() {
               }}
               className="outline-none"
             >
+
               <div className="relative h-[360px] sm:h-[390px] md:h-[420px]">
                 {cards.map((card, index) => {
                   const rel = relativePosition(index, activeIndex, total);

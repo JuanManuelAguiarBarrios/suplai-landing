@@ -50,7 +50,7 @@ export default function SolutionSection() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-16"
         >
-          <div className="badge mx-auto mb-6">La solucion</div>
+          <div className="industrial-kicker mb-6 mx-auto">Flujo automatizado</div>
           <h2 className="text-3xl md:text-4xl lg:text-[2.8rem] tracking-[-0.02em] text-slate-950 mb-4">
             Un flujo <span className="gradient-text">100% automatizado</span>
           </h2>
@@ -59,7 +59,7 @@ export default function SolutionSection() {
           </p>
         </motion.div>
 
-        <div className="relative rounded-[30px] border border-[rgba(45,68,204,0.14)] bg-[linear-gradient(180deg,#f7f9ff_0%,#f2f5ff_100%)] p-6 md:p-8 lg:p-10 shadow-[0_24px_50px_rgba(45,68,204,0.12)] overflow-hidden">
+        <div className="section-shell p-6 md:p-8 lg:p-10">
           <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(45,68,204,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(45,68,204,0.05)_1px,transparent_1px)] bg-[size:44px_44px] opacity-55" />
 
           <div className="relative">

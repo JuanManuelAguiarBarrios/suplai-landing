@@ -42,7 +42,7 @@ export default function AudienceSection() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="deferred-section relative py-28 md:py-32 px-6 lg:px-8 bg-white" ref={ref}>
+    <section className="deferred-section relative py-28 md:py-32 px-6 lg:px-8 bg-[linear-gradient(180deg,#ffffff_0%,#f8faff_100%)]" ref={ref}>
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-11 lg:gap-12 items-start">
           <motion.div
@@ -50,7 +50,7 @@ export default function AudienceSection() {
             animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="badge mb-6">Para quien</div>
+            <div className="industrial-kicker mb-6">Segmentos atendidos</div>
             <h2 className="text-3xl md:text-4xl lg:text-[2.8rem] leading-[1.08] tracking-[-0.02em] text-slate-950 mb-5">
               Diseñado para empresas con <span className="gradient-text">alta carga operativa</span>
             </h2>
@@ -60,7 +60,7 @@ export default function AudienceSection() {
 
           </motion.div>
 
-          <div className="space-y-3">
+          <div className="section-shell p-4 md:p-5 space-y-3">
             {audiences.map((item, idx) => (
               <motion.article
                 key={item.label}
@@ -71,8 +71,9 @@ export default function AudienceSection() {
                   delay: 0.08 + idx * 0.06,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="group rounded-2xl border border-[rgba(45,68,204,0.14)] bg-white px-5 py-4 md:px-6 md:py-[18px] shadow-[0_8px_20px_rgba(45,68,204,0.06)] hover:shadow-[0_18px_32px_rgba(45,68,204,0.12)] hover:-translate-y-0.5 transition-all duration-300"
+                className="group rounded-2xl border border-[rgba(45,68,204,0.14)] bg-white px-5 py-4 md:px-6 md:py-[18px] shadow-[0_8px_20px_rgba(45,68,204,0.06)] hover:shadow-[0_18px_32px_rgba(45,68,204,0.12)] hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden"
               >
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-[linear-gradient(180deg,rgb(45,68,204),rgb(115,175,255))] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="grid grid-cols-[auto_1fr] gap-3.5 items-start">
                   <div className="w-10 h-10 rounded-xl border border-[rgba(45,68,204,0.16)] bg-[rgba(45,68,204,0.07)] flex items-center justify-center group-hover:bg-[rgba(45,68,204,0.12)] transition-colors duration-300">
                     <item.icon size={18} className="text-[rgb(45,68,204)]" />

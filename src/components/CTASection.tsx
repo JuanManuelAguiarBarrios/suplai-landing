@@ -12,7 +12,7 @@ export default function CTASection() {
   return (
     <section
       id="cta"
-      className="deferred-section relative py-28 md:py-32 px-6 lg:px-8 overflow-hidden bg-[#08132f]"
+      className="deferred-section relative py-28 md:py-32 px-6 lg:px-8 overflow-hidden bg-[linear-gradient(180deg,#061127_0%,#08142f_100%)]"
       ref={ref}
     >
       <div className="absolute inset-0 pointer-events-none">
@@ -32,6 +32,9 @@ export default function CTASection() {
           transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
           className="rounded-[30px] border border-white/16 bg-white/8 backdrop-blur-xl px-6 py-11 md:px-10 md:py-12"
         >
+          <div className="inline-flex items-center rounded-full border border-white/25 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/78 mb-6">
+            Coordinación inteligente
+          </div>
           <h2 className="text-3xl md:text-4xl lg:text-[2.95rem] leading-[1.08] tracking-[-0.02em] text-white mb-6">
             Deja que la IA haga el <span className="text-[rgb(161,203,255)]">seguimiento por vos</span>
           </h2>

@@ -202,7 +202,7 @@ export default function DemoSection() {
   ];
 
   return (
-    <section id="demo" className="deferred-section relative py-32 px-6 lg:px-8" ref={ref}>
+    <section id="demo" className="deferred-section relative py-32 px-6 lg:px-8 bg-[linear-gradient(180deg,#ffffff_0%,#f9fbff_70%,#ffffff_100%)]" ref={ref}>
       <div className="section-divider mb-32" />
 
       <div className="max-w-5xl mx-auto">
@@ -212,9 +212,8 @@ export default function DemoSection() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
           className="text-center mb-16"
         >
-          <div className="badge mx-auto mb-6">
-            <Sparkles size={14} className="text-[rgb(45,68,204)]" />
-            Demo interactiva
+          <div className="industrial-kicker mx-auto mb-6">
+            Simulación en vivo
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold tracking-[-0.02em] mb-4">
             Mirá la <span className="gradient-text">IA en acción</span>

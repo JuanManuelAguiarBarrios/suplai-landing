@@ -12,7 +12,7 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative py-20 px-6 lg:px-8">
+    <footer className="relative py-20 px-6 lg:px-8 bg-[linear-gradient(180deg,#ffffff_0%,#f7faff_100%)]">
       <div className="section-divider mb-16" />
 
       <div className="max-w-7xl mx-auto">
@@ -35,7 +35,7 @@ export default function Footer() {
               <a
                 key={link.href}
                 href={link.href}
-                className="nav-link text-[12px] text-slate-400 hover:text-[rgb(45,68,204)] transition-colors duration-300 pb-0.5"
+                className="nav-link text-[12px] text-slate-500 hover:text-[rgb(45,68,204)] transition-colors duration-300 pb-0.5"
               >
                 {link.label}
               </a>
@@ -43,7 +43,7 @@ export default function Footer() {
           </div>
 
           {/* Copyright */}
-          <p className="text-[11px] text-slate-300">
+          <p className="text-[11px] text-slate-400">
             © {new Date().getFullYear()} Suplai. Todos los derechos reservados.
           </p>
         </div>
