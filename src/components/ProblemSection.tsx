@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Phone, MessageSquare, ClipboardList, AlertTriangle } from "lucide-react";
+import { AlertTriangle, ClipboardList, MessageSquare, Phone } from "lucide-react";
 
 const problems = [
   {
@@ -15,13 +15,13 @@ const problems = [
     icon: MessageSquare,
     title: "Mensajes de WhatsApp desordenados",
     description:
-      "Información dispersa en chats sin estructura ni trazabilidad.",
+      "Informacion dispersa en chats sin estructura ni trazabilidad.",
   },
   {
     icon: ClipboardList,
     title: "Sobrecarga administrativa",
     description:
-      "Tu equipo dedica más tiempo a coordinar que a gestionar la operación.",
+      "Tu equipo dedica mas tiempo a coordinar que a gestionar la operacion.",
   },
   {
     icon: AlertTriangle,
@@ -36,49 +36,59 @@ export default function ProblemSection() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="problema" className="relative py-32 px-6 lg:px-8" ref={ref}>
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
-          animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center mb-20"
-        >
-          <div className="badge mx-auto mb-6">El problema</div>
-          <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold leading-[1.15] tracking-[-0.02em] max-w-2xl mx-auto">
-            Los seguimientos manuales están{" "}
-            <span className="gradient-text">frenando tu operación</span>
-          </h2>
-        </motion.div>
+    <section
+      id="problema"
+      className="relative py-28 md:py-32 px-6 lg:px-8 bg-[linear-gradient(180deg,#ffffff_0%,#f7f9ff_100%)]"
+      ref={ref}
+    >
+      <div className="max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-[0.92fr_1.08fr] gap-12 lg:gap-14 items-start">
+          <motion.div
+            initial={{ opacity: 0, y: 26, filter: "blur(8px)" }}
+            animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="badge mb-6">El problema</div>
+            <h2 className="text-3xl md:text-4xl lg:text-[2.8rem] leading-[1.08] tracking-[-0.02em] text-slate-950 mb-6">
+              Los seguimientos manuales estan <span className="gradient-text">frenando tu operacion</span>
+            </h2>
+            <p className="text-slate-600 text-[15px] leading-relaxed max-w-md">
+              Cuando el seguimiento depende de tareas manuales, la informacion llega tarde, el equipo se satura y las decisiones se vuelven reactivas.
+            </p>
+          </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {problems.map((problem, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 40, filter: "blur(6px)" }}
-              animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
-              transition={{
-                duration: 0.7,
-                delay: 0.15 + idx * 0.12,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="gradient-border p-7 group cursor-default"
-            >
-              <div className="w-11 h-11 rounded-xl bg-[rgba(45,68,204,0.06)] flex items-center justify-center mb-5 group-hover:bg-[rgba(45,68,204,0.12)] group-hover:scale-110 transition-all duration-500">
-                <problem.icon
-                  size={22}
-                  strokeWidth={1.5}
-                  className="text-slate-400 group-hover:text-[rgb(45,68,204)] transition-colors duration-500"
-                />
-              </div>
-              <h3 className="text-[15px] font-semibold text-slate-900 mb-2.5 leading-snug">
-                {problem.title}
-              </h3>
-              <p className="text-[13px] text-slate-500 leading-relaxed">
-                {problem.description}
-              </p>
-            </motion.div>
-          ))}
+          <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
+            {problems.map((problem, idx) => (
+              <motion.article
+                key={problem.title}
+                initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
+                animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+                transition={{
+                  duration: 0.68,
+                  delay: 0.12 + idx * 0.1,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="relative rounded-2xl border border-[rgba(45,68,204,0.14)] bg-white p-6 shadow-[0_14px_26px_rgba(45,68,204,0.07)] overflow-hidden"
+              >
+                <div className="absolute top-0 left-0 h-full w-1 bg-[linear-gradient(180deg,rgb(45,68,204),rgb(115,175,255))]" />
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-11 h-11 rounded-xl border border-[rgba(45,68,204,0.14)] bg-[rgba(45,68,204,0.06)] flex items-center justify-center">
+                    <problem.icon size={20} strokeWidth={1.6} className="text-[rgb(45,68,204)]" />
+                  </div>
+                  <span className="text-[10px] font-semibold tracking-[0.14em] uppercase text-slate-400">
+                    0{idx + 1}
+                  </span>
+                </div>
+
+                <h3 className="text-[16px] font-semibold text-slate-900 mb-2.5 leading-snug">
+                  {problem.title}
+                </h3>
+                <p className="text-[13px] text-slate-600 leading-relaxed">
+                  {problem.description}
+                </p>
+              </motion.article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

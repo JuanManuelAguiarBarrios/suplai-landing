@@ -9,50 +9,29 @@ export default function CTASection() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="cta" className="relative py-40 px-6 lg:px-8 grain-overlay" ref={ref}>
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.06, 0.12, 0.06],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-[rgb(45,68,204)] rounded-full blur-[220px]"
-        />
-        <motion.div
-          animate={{
-            scale: [1.2, 0.9, 1.2],
-            opacity: [0.04, 0.1, 0.04],
-            x: [0, 50, 0],
-            y: [0, -30, 0],
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[rgb(115,175,255)] rounded-full blur-[180px]"
-        />
+    <section
+      id="cta"
+      className="relative py-28 md:py-32 px-6 lg:px-8 overflow-hidden bg-[#08132f]"
+      ref={ref}
+    >
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-56 left-1/2 -translate-x-1/2 w-[820px] h-[820px] rounded-full bg-[rgba(45,68,204,0.4)] blur-[220px]" />
+        <div className="absolute -bottom-52 right-0 w-[540px] h-[540px] rounded-full bg-[rgba(115,175,255,0.24)] blur-[180px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:46px_46px]" />
       </div>
 
-      {/* Decorative animated lines */}
-      <div className="absolute top-[25%] left-0 right-0 h-px overflow-hidden opacity-10">
-        <div className="animate-line-flow h-full bg-gradient-to-r from-transparent via-[rgb(45,68,204)] to-transparent" />
-      </div>
-      <div className="absolute bottom-[25%] left-0 right-0 h-px overflow-hidden opacity-10">
-        <div className="animate-line-flow h-full bg-gradient-to-r from-transparent via-[rgb(115,175,255)] to-transparent" style={{ animationDelay: "2s" }} />
-      </div>
-
-      <div className="relative z-10 max-w-3xl mx-auto text-center">
+      <div className="relative max-w-3xl mx-auto text-center">
         <motion.div
-          initial={{ opacity: 0, y: 40, scale: 0.97, filter: "blur(10px)" }}
+          initial={{ opacity: 0, y: 30, scale: 0.97, filter: "blur(10px)" }}
           animate={isInView ? { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" } : {}}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+          className="rounded-[30px] border border-white/16 bg-white/8 backdrop-blur-xl px-6 py-11 md:px-10 md:py-12"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-[3rem] font-bold leading-[1.1] tracking-[-0.02em] mb-7">
-            Dejá que la IA haga el{" "}
-            <span className="gradient-text">seguimiento por vos</span>
+          <h2 className="text-3xl md:text-4xl lg:text-[2.95rem] leading-[1.08] tracking-[-0.02em] text-white mb-6">
+            Deja que la IA haga el <span className="text-[rgb(161,203,255)]">seguimiento por vos</span>
           </h2>
-          <p className="text-lg md:text-xl text-slate-500 mb-12 max-w-xl mx-auto font-light leading-relaxed">
-            Sumate a las empresas que ya automatizan sus operaciones logísticas
-            con Suplai.
+          <p className="text-lg md:text-xl text-white/80 mb-10 max-w-xl mx-auto leading-relaxed">
+            Sumate a las empresas que ya automatizan sus operaciones logisticas con Suplai.
           </p>
 
           <motion.a
@@ -68,7 +47,7 @@ export default function CTASection() {
             />
           </motion.a>
 
-          <p className="text-[12px] text-slate-400 mt-8 tracking-wide">
+          <p className="text-[12px] text-white/65 mt-7 tracking-wide">
             Sin compromiso · Respuesta en 24hs · Demo personalizada
           </p>
         </motion.div>

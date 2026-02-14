@@ -187,7 +187,7 @@ export default function HeroSection() {
         {/* Right - Kanban mockup with 3D perspective entrance */}
         <motion.div
           initial={{ opacity: 0, y: 50, scale: 0.92, rotateY: -8 }}
-          animate={{ opacity: 1, y: 0, scale: 1, rotateY: 0 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{
             duration: 1.2,
             delay: 0.8,

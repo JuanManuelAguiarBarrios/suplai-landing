@@ -4,13 +4,13 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const logos = [
-  "Logística Express",
+  "Logistica Express",
   "TransCarga",
   "Puerto Sur",
   "DistribuiMax",
   "FlotaYA",
   "CargoNet",
-  "EnvíoRápido",
+  "EnvioRapido",
   "LogiTrack",
 ];
 
@@ -19,32 +19,30 @@ export default function LogosCarousel() {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <section ref={ref} className="relative py-16 overflow-hidden">
-      <div className="section-divider mb-16" />
+    <section ref={ref} className="relative py-14 md:py-16 overflow-hidden bg-white">
+      <div className="section-divider mb-12" />
 
       <motion.div
-        initial={{ opacity: 0, y: 10 }}
+        initial={{ opacity: 0, y: 12 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.75 }}
       >
-        <p className="text-center text-xs font-medium text-slate-400 uppercase tracking-[0.2em] mb-10">
-          Empresas que confían en la automatización
+        <p className="text-center text-[11px] font-semibold text-slate-500 uppercase tracking-[0.2em] mb-8">
+          Operadores y equipos que ya automatizan su seguimiento
         </p>
 
         <div className="fade-mask">
           <div className="flex animate-scroll-left">
             {[...logos, ...logos].map((logo, idx) => (
               <div
-                key={idx}
-                className="flex-shrink-0 mx-10 flex items-center justify-center group"
+                key={`${logo}-${idx}`}
+                className="flex-shrink-0 mx-4 sm:mx-5 md:mx-6 flex items-center justify-center"
               >
-                <div className="flex items-center gap-2.5 opacity-25 group-hover:opacity-60 transition-all duration-500 group-hover:scale-105">
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[rgba(45,68,204,0.08)] to-[rgba(115,175,255,0.08)] border border-[rgba(45,68,204,0.12)] flex items-center justify-center group-hover:border-[rgba(45,68,204,0.25)] transition-colors duration-500">
-                    <span className="text-[10px] font-bold text-slate-500 group-hover:text-[rgb(45,68,204)] transition-colors duration-500">
-                      {logo.charAt(0)}
-                    </span>
-                  </div>
-                  <span className="text-sm font-medium text-slate-600 whitespace-nowrap">
+                <div className="inline-flex items-center gap-2.5 rounded-full border border-[rgba(45,68,204,0.2)] bg-[rgba(245,248,255,0.9)] px-4 py-2.5">
+                  <span className="inline-flex h-6 w-6 rounded-full bg-[rgba(45,68,204,0.1)] border border-[rgba(45,68,204,0.16)] items-center justify-center text-[10px] font-semibold text-[rgb(45,68,204)]">
+                    {logo.charAt(0)}
+                  </span>
+                  <span className="text-[13px] font-medium text-slate-600 whitespace-nowrap">
                     {logo}
                   </span>
                 </div>
