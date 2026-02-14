@@ -46,8 +46,8 @@ export default function AudienceSection() {
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-11 lg:gap-12 items-start">
           <motion.div
-            initial={{ opacity: 0, y: 26, filter: "blur(8px)" }}
-            animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+            initial={{ opacity: 0, y: 26 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="industrial-kicker mb-6">Segmentos atendidos</div>
@@ -64,8 +64,8 @@ export default function AudienceSection() {
             {audiences.map((item, idx) => (
               <motion.article
                 key={item.label}
-                initial={{ opacity: 0, y: 22, filter: "blur(6px)" }}
-                animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+                initial={{ opacity: 0, y: 22 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{
                   duration: 0.62,
                   delay: 0.08 + idx * 0.06,

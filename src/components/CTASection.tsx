@@ -26,9 +26,9 @@ export default function CTASection() {
           initial={
             shouldReduceMotion
               ? { opacity: 0, y: 12 }
-              : { opacity: 0, y: 30, scale: 0.97, filter: "blur(10px)" }
+              : { opacity: 0, y: 30, scale: 0.97 }
           }
-          animate={isInView ? { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" } : {}}
+          animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
           transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
           className="rounded-[30px] border border-white/16 bg-white/8 backdrop-blur-xl px-6 py-11 md:px-10 md:py-12"
         >

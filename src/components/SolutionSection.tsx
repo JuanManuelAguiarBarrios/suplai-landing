@@ -45,8 +45,8 @@ export default function SolutionSection() {
     <section id="solucion" className="deferred-section relative py-28 md:py-32 px-6 lg:px-8 bg-white" ref={ref}>
       <div className="max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
-          animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-16"
         >
@@ -79,8 +79,8 @@ export default function SolutionSection() {
                 return (
                   <motion.article
                     key={step.title}
-                    initial={{ opacity: 0, y: 26, filter: "blur(6px)" }}
-                    animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+                    initial={{ opacity: 0, y: 26 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{
                       duration: 0.68,
                       delay: 0.12 + idx * 0.08,

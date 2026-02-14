@@ -87,8 +87,8 @@ export default function MetricsSection() {
 
       <div className="relative max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 26, filter: "blur(8px)" }}
-          animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+          initial={{ opacity: 0, y: 26 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-14"
         >
@@ -107,8 +107,8 @@ export default function MetricsSection() {
           {metrics.map((metric, idx) => (
             <motion.article
               key={metric.label}
-              initial={{ opacity: 0, y: 28, filter: "blur(6px)" }}
-              animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+              initial={{ opacity: 0, y: 28 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{
                 duration: 0.66,
                 delay: 0.1 + idx * 0.09,

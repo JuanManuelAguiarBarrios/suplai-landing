@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import MotionProvider from "@/components/MotionProvider";
 import "./globals.css";
 
 const inter = Inter({
@@ -36,10 +35,8 @@ export default function RootLayout({
   return (
     <html lang="es" className="dark">
       <body className={`${inter.variable} ${playfairDisplay.variable} antialiased`}>
-        <MotionProvider>
-          {children}
-          <SpeedInsights />
-        </MotionProvider>
+        {children}
+        <SpeedInsights />
       </body>
     </html>
   );

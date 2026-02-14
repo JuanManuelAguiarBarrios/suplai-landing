@@ -18,9 +18,23 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    let frame = 0;
+
+    const onScroll = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(() => {
+        frame = 0;
+        const nextScrolled = window.scrollY > 20;
+        setScrolled((prev) => (prev === nextScrolled ? prev : nextScrolled));
+      });
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
   }, []);
 
   return (
@@ -30,8 +44,8 @@ export default function Navbar() {
       transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-2xl border-b border-[rgba(45,68,204,0.12)] shadow-[0_8px_32px_rgba(45,68,204,0.1)]"
-          : "bg-white/45 backdrop-blur-md"
+          ? "bg-white/90 backdrop-blur-lg border-b border-[rgba(45,68,204,0.12)] shadow-[0_8px_24px_rgba(45,68,204,0.08)]"
+          : "bg-white/45 backdrop-blur-sm"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">

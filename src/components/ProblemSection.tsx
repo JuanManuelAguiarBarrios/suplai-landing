@@ -45,8 +45,8 @@ export default function ProblemSection() {
       <div className="relative max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-[0.92fr_1.08fr] gap-12 lg:gap-14 items-start">
           <motion.div
-            initial={{ opacity: 0, y: 26, filter: "blur(8px)" }}
-            animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+            initial={{ opacity: 0, y: 26 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="industrial-kicker mb-6">Diagnóstico operativo</div>
@@ -62,8 +62,8 @@ export default function ProblemSection() {
             {problems.map((problem, idx) => (
               <motion.article
                 key={problem.title}
-                initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
-                animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{
                   duration: 0.68,
                   delay: 0.12 + idx * 0.1,

@@ -277,8 +277,8 @@ h6 {
    ═══════════════════════════════════════════ */
 .glass-card {
   background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(24px) saturate(1.2);
-  -webkit-backdrop-filter: blur(24px) saturate(1.2);
+  backdrop-filter: blur(14px) saturate(1.12);
+  -webkit-backdrop-filter: blur(14px) saturate(1.12);
   border: 1px solid rgba(45, 68, 204, 0.12);
   box-shadow:
     0 24px 48px rgba(45, 68, 204, 0.12),
@@ -303,7 +303,7 @@ h6 {
   color: rgb(45, 68, 204);
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(4px);
 }
 
 /* ═══════════════════════════════════════════
@@ -478,6 +478,7 @@ h6 {
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
+  will-change: transform;
 }
 
 @keyframes scroll-left {
@@ -487,6 +488,7 @@ h6 {
 
 .animate-scroll-left {
   animation: scroll-left 44s linear infinite;
+  will-change: transform;
 }
 
 .fade-mask {
@@ -575,6 +577,25 @@ h6 {
 }
 
 @media (max-width: 768px) {
+  .glass-card {
+    backdrop-filter: blur(8px) saturate(1.04);
+    -webkit-backdrop-filter: blur(8px) saturate(1.04);
+  }
+
+  .badge {
+    backdrop-filter: none;
+  }
+
+  .grid-bg {
+    mask-image: none;
+    -webkit-mask-image: none;
+    background-size: 44px 44px;
+  }
+
+  .glow-button::before {
+    display: none;
+  }
+
   .animate-scroll-left {
     animation-duration: 56s;
   }

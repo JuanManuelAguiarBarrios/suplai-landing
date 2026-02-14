@@ -4,11 +4,10 @@ import { m as motion, useReducedMotion } from "framer-motion";
 import KanbanMockup from "./KanbanMockup";
 
 const wordVariants = {
-  hidden: { opacity: 0, y: 24, filter: "blur(10px)" },
+  hidden: { opacity: 0, y: 24 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
     transition: {
       delay: 0.4 + i * 0.08,
       duration: 0.7,
@@ -36,7 +35,7 @@ export default function HeroSection() {
                 }
           }
           transition={shouldReduceMotion ? undefined : { duration: 26, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-32 left-1/4 w-[560px] h-[560px] bg-[rgba(45,68,204,0.08)] rounded-full blur-[88px]"
+          className="absolute hidden md:block -top-32 left-1/4 w-[500px] h-[500px] bg-[rgba(45,68,204,0.08)] rounded-full blur-[72px] will-change-transform"
         />
         <motion.div
           animate={
@@ -49,8 +48,9 @@ export default function HeroSection() {
                 }
           }
           transition={shouldReduceMotion ? undefined : { duration: 30, repeat: Infinity, ease: "linear" }}
-          className="absolute -bottom-40 right-1/4 w-[520px] h-[520px] bg-[rgba(115,175,255,0.1)] rounded-full blur-[84px]"
+          className="absolute hidden md:block -bottom-40 right-1/4 w-[480px] h-[480px] bg-[rgba(115,175,255,0.1)] rounded-full blur-[68px] will-change-transform"
         />
+        <div className="absolute inset-0 md:hidden bg-[radial-gradient(circle_at_20%_15%,rgba(45,68,204,0.08),transparent_38%),radial-gradient(circle_at_85%_82%,rgba(115,175,255,0.1),transparent_35%)]" />
       </div>
 
       {/* Grid background with radial fade */}
@@ -93,8 +93,8 @@ export default function HeroSection() {
             ))}
             <br />
             <motion.span
-              initial={{ opacity: 0, y: 24, filter: "blur(10px)" }}
-              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{
                 delay: 0.4 + titleWords.length * 0.08,
                 duration: 0.8,
@@ -107,8 +107,8 @@ export default function HeroSection() {
           </h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1, ease: [0.22, 1, 0.36, 1] }}
             className="text-lg md:text-xl text-slate-500 leading-relaxed mb-10 font-normal"
           >
@@ -117,8 +117,8 @@ export default function HeroSection() {
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-wrap gap-4"
           >

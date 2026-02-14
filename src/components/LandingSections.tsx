@@ -1,35 +1,61 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { useEffect } from "react";
 import LazyMount from "@/components/LazyMount";
 
-const LogosCarousel = dynamic(() => import("@/components/LogosCarousel"), {
+const loadLogosCarousel = () => import("@/components/LogosCarousel");
+const loadProblemSection = () => import("@/components/ProblemSection");
+const loadSolutionSection = () => import("@/components/SolutionSection");
+const loadCapabilitiesCarouselSection = () =>
+  import("@/components/CapabilitiesCarouselSection");
+const loadDemoSection = () => import("@/components/DemoSection");
+const loadMetricsSection = () => import("@/components/MetricsSection");
+const loadAudienceSection = () => import("@/components/AudienceSection");
+const loadCTASection = () => import("@/components/CTASection");
+
+const LogosCarousel = dynamic(loadLogosCarousel, {
   ssr: false,
 });
-const ProblemSection = dynamic(() => import("@/components/ProblemSection"), {
+const ProblemSection = dynamic(loadProblemSection, {
   ssr: false,
 });
-const SolutionSection = dynamic(() => import("@/components/SolutionSection"), {
+const SolutionSection = dynamic(loadSolutionSection, {
   ssr: false,
 });
-const CapabilitiesCarouselSection = dynamic(
-  () => import("@/components/CapabilitiesCarouselSection"),
-  { ssr: false }
-);
-const DemoSection = dynamic(() => import("@/components/DemoSection"), {
+const CapabilitiesCarouselSection = dynamic(loadCapabilitiesCarouselSection, {
   ssr: false,
 });
-const MetricsSection = dynamic(() => import("@/components/MetricsSection"), {
+const DemoSection = dynamic(loadDemoSection, {
   ssr: false,
 });
-const AudienceSection = dynamic(() => import("@/components/AudienceSection"), {
+const MetricsSection = dynamic(loadMetricsSection, {
   ssr: false,
 });
-const CTASection = dynamic(() => import("@/components/CTASection"), {
+const AudienceSection = dynamic(loadAudienceSection, {
+  ssr: false,
+});
+const CTASection = dynamic(loadCTASection, {
   ssr: false,
 });
 
 export default function LandingSections() {
+  useEffect(() => {
+    const preload = () => {
+      void loadLogosCarousel();
+      void loadProblemSection();
+      void loadSolutionSection();
+      void loadCapabilitiesCarouselSection();
+      void loadDemoSection();
+      void loadMetricsSection();
+      void loadAudienceSection();
+      void loadCTASection();
+    };
+
+    const timeoutId = window.setTimeout(preload, 900);
+    return () => window.clearTimeout(timeoutId);
+  }, []);
+
   return (
     <>
       <LazyMount minHeight={120} rootMargin="240px 0px">

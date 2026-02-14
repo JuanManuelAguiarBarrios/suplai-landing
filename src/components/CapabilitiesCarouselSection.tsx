@@ -1,7 +1,7 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
-import { m as motion } from "framer-motion";
+import { useCallback, useState } from "react";
+import { m as motion, useReducedMotion } from "framer-motion";
 import {
   ChevronLeft,
   ChevronRight,
@@ -60,6 +60,7 @@ function relativePosition(index: number, activeIndex: number, total: number) {
 export default function CapabilitiesCarouselSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const total = capabilities.length;
+  const shouldReduceMotion = useReducedMotion();
 
   const prev = useCallback(
     () => setActiveIndex((prevIndex) => (prevIndex - 1 + total) % total),
@@ -70,8 +71,6 @@ export default function CapabilitiesCarouselSection() {
     () => setActiveIndex((prevIndex) => (prevIndex + 1) % total),
     [total]
   );
-
-  const cards = useMemo(() => capabilities, []);
 
   return (
     <section
@@ -133,7 +132,7 @@ export default function CapabilitiesCarouselSection() {
             >
 
               <div className="relative h-[360px] sm:h-[390px] md:h-[420px]">
-                {cards.map((card, index) => {
+                {capabilities.map((card, index) => {
                   const rel = relativePosition(index, activeIndex, total);
                   const abs = Math.abs(rel);
 
@@ -144,9 +143,8 @@ export default function CapabilitiesCarouselSection() {
                       aria-label={`${index + 1} de ${total}: ${card.title}`}
                       animate={{
                         x: rel * 250,
-                        scale: rel === 0 ? 1 : 0.84,
+                        scale: shouldReduceMotion ? 1 : rel === 0 ? 1 : 0.84,
                         opacity: abs > 2 ? 0 : rel === 0 ? 1 : 0.45,
-                        filter: `blur(${rel === 0 ? 0 : 2.8}px)`,
                       }}
                       transition={{
                         type: "spring",
@@ -154,7 +152,7 @@ export default function CapabilitiesCarouselSection() {
                         damping: 28,
                         mass: 0.9,
                       }}
-                      className={`absolute left-1/2 top-0 -translate-x-1/2 w-[280px] sm:w-[320px] md:w-[360px] h-[332px] sm:h-[352px] md:h-[380px] rounded-3xl p-6 border overflow-hidden ${
+                      className={`absolute left-1/2 top-0 -translate-x-1/2 w-[280px] sm:w-[320px] md:w-[360px] h-[332px] sm:h-[352px] md:h-[380px] rounded-3xl p-6 border overflow-hidden will-change-transform ${
                         rel === 0
                           ? "bg-white/18 border-white/35 shadow-[0_24px_60px_rgba(0,0,0,0.35)]"
                           : "bg-white/10 border-white/18 shadow-[0_14px_30px_rgba(0,0,0,0.2)]"
@@ -197,7 +195,7 @@ export default function CapabilitiesCarouselSection() {
                 </button>
 
                 <div className="flex items-center gap-2">
-                  {cards.map((card, index) => (
+                  {capabilities.map((card, index) => (
                     <button
                       key={card.title}
                       type="button"
