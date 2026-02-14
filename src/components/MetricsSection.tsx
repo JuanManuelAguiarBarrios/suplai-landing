@@ -87,8 +87,8 @@ export default function MetricsSection() {
     <section id="metricas" className="relative py-32 px-6 lg:px-8" ref={ref}>
       <div className="section-divider mb-32" />
 
-      {/* Dark gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-950/[0.04] to-transparent" />
+      {/* Accent gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[rgba(115,175,255,0.16)] to-transparent" />
 
       <div className="relative max-w-6xl mx-auto">
         <motion.div
@@ -116,11 +116,11 @@ export default function MetricsSection() {
               }}
               className="text-center"
             >
-              <div className="w-12 h-12 rounded-2xl bg-white/[0.03] border border-white/[0.05] flex items-center justify-center mx-auto mb-6">
+              <div className="w-12 h-12 rounded-2xl bg-[rgba(45,68,204,0.08)] border border-[rgba(45,68,204,0.16)] flex items-center justify-center mx-auto mb-6">
                 <metric.icon
                   size={24}
                   strokeWidth={1.5}
-                  className="text-indigo-400"
+                  className="text-[rgb(45,68,204)]"
                 />
               </div>
               <div className="mb-3">
@@ -131,7 +131,7 @@ export default function MetricsSection() {
                   isInView={isInView}
                 />
               </div>
-              <p className="text-[13px] text-gray-500 font-medium">
+              <p className="text-[13px] text-slate-500 font-medium">
                 {metric.prefix} {metric.label}
               </p>
             </motion.div>

@@ -43,13 +43,13 @@ export default function AudienceSection() {
               transition={{ duration: 0.5, delay: 0.15 + idx * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="gradient-border p-6 flex flex-col items-center text-center cursor-default group"
             >
-              <div className="w-14 h-14 rounded-2xl bg-white/[0.03] flex items-center justify-center mb-4 group-hover:bg-indigo-500/10 transition-all duration-500">
-                <item.icon size={28} strokeWidth={1.5} className="text-gray-500 group-hover:text-indigo-400 transition-colors duration-500" />
+              <div className="w-14 h-14 rounded-2xl bg-[rgba(45,68,204,0.08)] flex items-center justify-center mb-4 group-hover:bg-[rgba(45,68,204,0.12)] transition-all duration-500">
+                <item.icon size={28} strokeWidth={1.5} className="text-slate-500 group-hover:text-[rgb(45,68,204)] transition-colors duration-500" />
               </div>
-              <span className="text-[13px] font-semibold text-gray-300 group-hover:text-white transition-colors duration-500 mb-1">
+              <span className="text-[13px] font-semibold text-slate-700 group-hover:text-slate-900 transition-colors duration-500 mb-1">
                 {item.label}
               </span>
-              <span className="text-[11px] text-gray-600">{item.desc}</span>
+              <span className="text-[11px] text-slate-500">{item.desc}</span>
             </motion.div>
           ))}
         </div>

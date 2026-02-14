@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 const footerLinks = [
   { label: "Problema", href: "#problema" },
   { label: "Solución", href: "#solucion" },
@@ -16,25 +18,14 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2.5">
-            <svg width="24" height="24" viewBox="0 0 40 40" fill="none">
-              <path
-                d="M8 28L20 16L32 28"
-                stroke="#6366F1"
-                strokeWidth="4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M8 20L20 8L32 20"
-                stroke="#A78BFA"
-                strokeWidth="4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                opacity="0.4"
-              />
-            </svg>
-            <span className="text-sm font-semibold text-white">Suplai</span>
+          <a href="#" className="flex items-center">
+            <Image
+              src="/suplai-logo-black-text.png"
+              alt="Suplai"
+              width={436}
+              height={126}
+              className="h-9 w-auto shrink-0"
+            />
           </a>
 
           {/* Links */}
@@ -43,7 +34,7 @@ export default function Footer() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-[12px] text-gray-600 hover:text-gray-400 transition-colors duration-300"
+                className="text-[12px] text-slate-500 hover:text-[rgb(45,68,204)] transition-colors duration-300"
               >
                 {link.label}
               </a>
@@ -51,7 +42,7 @@ export default function Footer() {
           </div>
 
           {/* Copyright */}
-          <p className="text-[11px] text-gray-700">
+          <p className="text-[11px] text-slate-400">
             © {new Date().getFullYear()} Suplai. Todos los derechos reservados.
           </p>
         </div>

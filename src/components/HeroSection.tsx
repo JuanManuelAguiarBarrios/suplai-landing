@@ -31,7 +31,7 @@ export default function HeroSection() {
             scale: [1, 1.1, 0.95, 1],
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-32 left-1/4 w-[700px] h-[700px] bg-indigo-600/[0.12] rounded-full blur-[140px]"
+          className="absolute -top-32 left-1/4 w-[700px] h-[700px] bg-[rgba(45,68,204,0.12)] rounded-full blur-[140px]"
         />
         <motion.div
           animate={{
@@ -40,7 +40,7 @@ export default function HeroSection() {
             scale: [1, 0.9, 1.15, 1],
           }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute -bottom-40 right-1/4 w-[600px] h-[600px] bg-violet-600/[0.08] rounded-full blur-[120px]"
+          className="absolute -bottom-40 right-1/4 w-[600px] h-[600px] bg-[rgba(115,175,255,0.16)] rounded-full blur-[120px]"
         />
         <motion.div
           animate={{
@@ -48,7 +48,7 @@ export default function HeroSection() {
             y: [0, -20, 40, 0],
           }}
           transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/3 right-0 w-[400px] h-[400px] bg-blue-600/[0.06] rounded-full blur-[100px]"
+          className="absolute top-1/3 right-0 w-[400px] h-[400px] bg-[rgba(115,175,255,0.12)] rounded-full blur-[100px]"
         />
       </div>
 
@@ -56,7 +56,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 grid-bg opacity-30" />
 
       {/* Radial fade at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#030712] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white to-transparent" />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-20 grid lg:grid-cols-2 gap-16 lg:gap-20 items-center w-full">
         {/* Left content */}
@@ -69,8 +69,8 @@ export default function HeroSection() {
           >
             <div className="badge mb-8">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[rgb(115,175,255)] opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[rgb(45,68,204)]" />
               </span>
               Potenciado por Inteligencia Artificial
             </div>
@@ -109,7 +109,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.8 }}
-            className="text-lg md:text-xl text-gray-400 leading-relaxed mb-10 font-light"
+            className="text-lg md:text-xl text-slate-600 leading-relaxed mb-10 font-light"
           >
             Suplai llama automáticamente a los conductores, interpreta sus
             respuestas y actualiza tu sistema en tiempo real.
@@ -129,7 +129,7 @@ export default function HeroSection() {
             </a>
             <a
               href="#solucion"
-              className="outline-button px-8 py-3.5 rounded-xl text-white font-medium text-[15px]"
+              className="outline-button px-8 py-3.5 rounded-xl text-[rgb(45,68,204)] font-medium text-[15px]"
             >
               Ver cómo funciona
             </a>
@@ -146,16 +146,16 @@ export default function HeroSection() {
               {[0, 1, 2, 3].map((i) => (
                 <div
                   key={i}
-                  className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500/30 to-violet-500/30 border-2 border-[#030712] flex items-center justify-center"
+                  className="w-8 h-8 rounded-full bg-gradient-to-br from-[rgba(45,68,204,0.3)] to-[rgba(115,175,255,0.3)] border-2 border-[rgba(45,68,204,0.2)] flex items-center justify-center"
                 >
-                  <span className="text-[9px] font-medium text-indigo-300">
+                  <span className="text-[9px] font-medium text-[rgb(70,118,228)]">
                     {["JM", "LG", "DR", "AP"][i]}
                   </span>
                 </div>
               ))}
             </div>
             <div>
-              <p className="text-xs text-gray-500">
+              <p className="text-xs text-slate-500">
                 Empresas de logística ya confían en Suplai
               </p>
             </div>

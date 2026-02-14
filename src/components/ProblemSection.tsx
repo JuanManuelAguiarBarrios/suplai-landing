@@ -64,17 +64,17 @@ export default function ProblemSection() {
               }}
               className="gradient-border p-7 group cursor-default"
             >
-              <div className="w-11 h-11 rounded-xl bg-white/[0.04] flex items-center justify-center mb-5 group-hover:bg-indigo-500/10 transition-all duration-400">
+              <div className="w-11 h-11 rounded-xl bg-[rgba(45,68,204,0.1)] flex items-center justify-center mb-5 group-hover:bg-[rgba(45,68,204,0.12)] transition-all duration-400">
                 <problem.icon
                   size={22}
                   strokeWidth={1.5}
-                  className="text-gray-500 group-hover:text-indigo-400 transition-colors duration-400"
+                  className="text-slate-500 group-hover:text-[rgb(45,68,204)] transition-colors duration-400"
                 />
               </div>
-              <h3 className="text-[15px] font-semibold text-white mb-2.5 leading-snug">
+              <h3 className="text-[15px] font-semibold text-slate-900 mb-2.5 leading-snug">
                 {problem.title}
               </h3>
-              <p className="text-[13px] text-gray-500 leading-relaxed">
+              <p className="text-[13px] text-slate-500 leading-relaxed">
                 {problem.description}
               </p>
             </motion.div>

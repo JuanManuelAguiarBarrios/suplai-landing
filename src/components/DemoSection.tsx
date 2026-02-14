@@ -220,13 +220,13 @@ export default function DemoSection() {
           className="text-center mb-16"
         >
           <div className="badge mx-auto mb-6">
-            <Sparkles size={14} className="text-indigo-400" />
+            <Sparkles size={14} className="text-[rgb(45,68,204)]" />
             Demo interactiva
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold tracking-[-0.02em] mb-4">
             Mirá la <span className="gradient-text">IA en acción</span>
           </h2>
-          <p className="text-gray-500 text-[15px] max-w-md mx-auto">
+          <p className="text-slate-500 text-[15px] max-w-md mx-auto">
             Cargá tu teléfono, tocá la llamada y mirá cómo la IA ejecuta todo el flujo en vivo.
           </p>
         </motion.div>
@@ -245,7 +245,7 @@ export default function DemoSection() {
                 : { opacity: 0.06, scale: 1 }
             }
             transition={isRunning ? { duration: 2, repeat: Infinity } : {}}
-            className="absolute -inset-6 bg-gradient-to-r from-indigo-600 via-violet-600 to-indigo-600 rounded-[40px] blur-2xl"
+            className="absolute -inset-6 bg-gradient-to-r from-[rgb(45,68,204)] via-[rgb(115,175,255)] to-[rgb(45,68,204)] rounded-[40px] blur-2xl"
           />
 
           <div className="relative glass-card rounded-2xl md:rounded-3xl overflow-hidden">
@@ -255,7 +255,7 @@ export default function DemoSection() {
                 <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
                 <div className="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]" />
                 <div className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
-                <span className="text-[10px] text-gray-500 ml-3 font-mono tracking-wider">
+                <span className="text-[10px] text-slate-500 ml-3 font-sans tracking-wider">
                   suplai.app/demo
                 </span>
               </div>
@@ -286,7 +286,7 @@ export default function DemoSection() {
                 {phase === "done" && (
                   <button
                     onClick={resetDemo}
-                    className="flex items-center gap-1.5 text-[11px] text-indigo-400 hover:text-indigo-300 transition-colors border border-indigo-500/20 px-3 py-1.5 rounded-lg hover:bg-indigo-500/5"
+                    className="flex items-center gap-1.5 text-[11px] text-[rgb(45,68,204)] hover:text-[rgb(70,118,228)] transition-colors border border-[rgba(45,68,204,0.24)] px-3 py-1.5 rounded-lg hover:bg-[rgba(45,68,204,0.08)]"
                   >
                     <RotateCcw size={11} />
                     Reiniciar
@@ -302,12 +302,12 @@ export default function DemoSection() {
                    LEFT: CALL SIMULATION
                    ═══════════════════════════════════════ */}
                 <div>
-                  <p className="text-[10px] font-bold text-gray-500 mb-5 uppercase tracking-[0.15em]">
+                  <p className="text-[10px] font-bold text-slate-500 mb-5 uppercase tracking-[0.15em]">
                     Agente IA
                   </p>
 
                   {/* Call card */}
-                  <div className="bg-white/[0.02] border border-white/[0.05] rounded-2xl p-5 mb-5">
+                  <div className="bg-[rgba(45,68,204,0.05)] border border-[rgba(45,68,204,0.16)] rounded-2xl p-5 mb-5">
                     {/* Caller info */}
                     <div className="flex items-center justify-between mb-5">
                       <div className="flex items-center gap-3.5">
@@ -318,8 +318,8 @@ export default function DemoSection() {
                               phase === "ringing"
                                 ? {
                                     boxShadow: [
-                                      "0 0 0 0px rgba(99,102,241,0.3)",
-                                      "0 0 0 12px rgba(99,102,241,0)",
+                                      "0 0 0 0px rgba(45,68,204,0.3)",
+                                      "0 0 0 12px rgba(45,68,204,0)",
                                     ],
                                   }
                                 : {}
@@ -331,24 +331,24 @@ export default function DemoSection() {
                             }
                             className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-500 ${
                               phase === "ringing"
-                                ? "bg-indigo-500/30"
+                                ? "bg-[rgba(45,68,204,0.3)]"
                                 : phase === "connected" || phase === "talking"
-                                ? "bg-indigo-500/20"
+                                ? "bg-[rgba(45,68,204,0.2)]"
                                 : phase === "processing"
                                 ? "bg-amber-500/20"
                                 : phase === "done"
                                 ? "bg-emerald-500/20"
-                                : "bg-white/[0.04]"
+                                : "bg-[rgba(45,68,204,0.1)]"
                             }`}
                           >
-                            {phase === "idle" && <PhoneOff size={20} className="text-gray-600" />}
+                            {phase === "idle" && <PhoneOff size={20} className="text-slate-500" />}
                             {phase === "ringing" && (
                               <motion.div animate={{ rotate: [0, -15, 15, -15, 15, 0] }} transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 0.5 }}>
-                                <Phone size={20} className="text-indigo-400" />
+                                <Phone size={20} className="text-[rgb(45,68,204)]" />
                               </motion.div>
                             )}
                             {(phase === "connected" || phase === "talking") && (
-                              <Phone size={20} className="text-indigo-400" />
+                              <Phone size={20} className="text-[rgb(45,68,204)]" />
                             )}
                             {phase === "processing" && (
                               <motion.div animate={{ rotate: 360 }} transition={{ duration: 2, repeat: Infinity, ease: "linear" }}>
@@ -360,10 +360,10 @@ export default function DemoSection() {
                         </div>
 
                         <div>
-                          <p className="text-sm font-semibold text-white">
+                          <p className="text-sm font-semibold text-slate-900">
                             Carlos M.
                           </p>
-                          <p className="text-[11px] text-gray-500 font-mono">
+                          <p className="text-[11px] text-slate-500 font-sans">
                             {targetPhone}
                           </p>
                         </div>
@@ -375,15 +375,15 @@ export default function DemoSection() {
                           <motion.p
                             animate={{ opacity: [1, 0.4, 1] }}
                             transition={{ duration: 1.2, repeat: Infinity }}
-                            className="text-[11px] text-indigo-400 font-medium"
+                            className="text-[11px] text-[rgb(45,68,204)] font-medium"
                           >
                             Llamando{".".repeat((ringCount % 3) + 1)}
                           </motion.p>
                         )}
                         {(phase === "connected" || phase === "talking" || phase === "processing") && (
                           <div className="flex items-center gap-1.5">
-                            <Clock size={10} className="text-gray-500" />
-                            <span className="text-[11px] font-mono text-gray-400">
+                            <Clock size={10} className="text-slate-500" />
+                            <span className="text-[11px] font-sans text-slate-600">
                               {formatDuration(callDuration)}
                             </span>
                           </div>
@@ -414,8 +414,8 @@ export default function DemoSection() {
                               style={{
                                 background:
                                   phase === "talking"
-                                    ? "linear-gradient(to top, rgba(99,102,241,0.3), rgba(129,140,248,0.8))"
-                                    : "linear-gradient(to top, rgba(99,102,241,0.15), rgba(129,140,248,0.4))",
+                                    ? "linear-gradient(to top, rgba(45,68,204,0.3), rgba(115,175,255,0.8))"
+                                    : "linear-gradient(to top, rgba(45,68,204,0.15), rgba(115,175,255,0.4))",
                               }}
                               animate={{
                                 height:
@@ -468,11 +468,11 @@ export default function DemoSection() {
                             transition={{ duration: 0.4 }}
                           >
                             <div className="flex items-start gap-2">
-                              <div className="w-5 h-5 rounded-md bg-indigo-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <Sparkles size={10} className="text-indigo-400" />
+                              <div className="w-5 h-5 rounded-md bg-[rgba(45,68,204,0.2)] flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <Sparkles size={10} className="text-[rgb(45,68,204)]" />
                               </div>
-                              <div className="bg-indigo-500/[0.06] border border-indigo-500/10 rounded-xl rounded-tl-sm px-3.5 py-2.5">
-                                <p className="text-[11px] text-indigo-200/90 leading-relaxed">
+                              <div className="bg-[rgba(45,68,204,0.06)] border border-[rgba(45,68,204,0.18)] rounded-xl rounded-tl-sm px-3.5 py-2.5">
+                                <p className="text-[11px] text-[rgba(80,127,232,0.9)] leading-relaxed">
                                   <TypewriterText
                                     text='Hola Carlos, te llamo de Suplai. ¿Podés confirmar el estado de tu envío BUE → CBA?'
                                     speed={22}
@@ -491,8 +491,8 @@ export default function DemoSection() {
                             transition={{ duration: 0.4 }}
                             className="flex justify-end"
                           >
-                            <div className="bg-white/[0.05] border border-white/[0.06] rounded-xl rounded-tr-sm px-3.5 py-2.5 max-w-[85%]">
-                              <p className="text-[11px] text-gray-300/90 leading-relaxed">
+                            <div className="bg-[rgba(45,68,204,0.12)] border border-[rgba(45,68,204,0.18)] rounded-xl rounded-tr-sm px-3.5 py-2.5 max-w-[85%]">
+                              <p className="text-[11px] text-slate-700/90 leading-relaxed">
                                 <TypewriterText
                                   text='Sí, ya entregué todo hace 20 minutos en el depósito de Córdoba.'
                                   speed={28}
@@ -510,11 +510,11 @@ export default function DemoSection() {
                             transition={{ duration: 0.4 }}
                           >
                             <div className="flex items-start gap-2">
-                              <div className="w-5 h-5 rounded-md bg-indigo-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <Sparkles size={10} className="text-indigo-400" />
+                              <div className="w-5 h-5 rounded-md bg-[rgba(45,68,204,0.2)] flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <Sparkles size={10} className="text-[rgb(45,68,204)]" />
                               </div>
-                              <div className="bg-indigo-500/[0.06] border border-indigo-500/10 rounded-xl rounded-tl-sm px-3.5 py-2.5">
-                                <p className="text-[11px] text-indigo-200/90 leading-relaxed">
+                              <div className="bg-[rgba(45,68,204,0.06)] border border-[rgba(45,68,204,0.18)] rounded-xl rounded-tl-sm px-3.5 py-2.5">
+                                <p className="text-[11px] text-[rgba(80,127,232,0.9)] leading-relaxed">
                                   <TypewriterText
                                     text='Perfecto Carlos, actualizo el estado a Entregado. ¡Gracias!'
                                     speed={22}
@@ -536,9 +536,9 @@ export default function DemoSection() {
                       return (
                         <div key={idx} className="flex items-center gap-1 flex-1">
                           <div className="flex-1 relative">
-                            <div className="h-[3px] rounded-full bg-white/[0.04]" />
+                            <div className="h-[3px] rounded-full bg-[rgba(45,68,204,0.1)]" />
                             <motion.div
-                              className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-indigo-500 to-violet-500"
+                              className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-[rgb(45,68,204)] to-[rgb(115,175,255)]"
                               initial={{ width: "0%" }}
                               animate={{ width: active ? "100%" : "0%" }}
                               transition={{ duration: 0.5, ease: "easeOut" }}
@@ -548,7 +548,7 @@ export default function DemoSection() {
                             <motion.span
                               initial={{ opacity: 0 }}
                               animate={{ opacity: 1 }}
-                              className="text-[8px] font-medium text-indigo-400 whitespace-nowrap"
+                              className="text-[8px] font-medium text-[rgb(45,68,204)] whitespace-nowrap"
                             >
                               {label}
                             </motion.span>
@@ -563,16 +563,16 @@ export default function DemoSection() {
                    RIGHT: KANBAN + START BUTTON
                    ═══════════════════════════════════════ */}
                 <div className="flex flex-col">
-                  <p className="text-[10px] font-bold text-gray-500 mb-5 uppercase tracking-[0.15em]">
+                  <p className="text-[10px] font-bold text-slate-500 mb-5 uppercase tracking-[0.15em]">
                     Tablero Kanban
                   </p>
 
-                  <div className="bg-white/[0.02] border border-white/[0.05] rounded-2xl p-4 mb-5">
+                  <div className="bg-[rgba(45,68,204,0.05)] border border-[rgba(45,68,204,0.16)] rounded-2xl p-4 mb-5">
                     <div className="flex items-center justify-between gap-3 mb-3">
-                      <span className="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.12em]">
+                      <span className="text-[10px] font-semibold text-slate-600 uppercase tracking-[0.12em]">
                         Probalo con tu número
                       </span>
-                      <span className="text-[9px] text-indigo-300/80 font-medium uppercase tracking-wider">
+                      <span className="text-[9px] text-[rgba(70,118,228,0.8)] font-medium uppercase tracking-wider">
                         Demo sin backend
                       </span>
                     </div>
@@ -590,12 +590,12 @@ export default function DemoSection() {
                         }}
                         placeholder="+54 9 11 5555-1234"
                         disabled={isRunning}
-                        className="flex-1 h-10 px-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-[13px] text-white placeholder:text-gray-600 focus:outline-none focus:border-indigo-500/60 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                        className="flex-1 h-10 px-3 rounded-xl bg-[rgba(45,68,204,0.08)] border border-[rgba(45,68,204,0.22)] text-[13px] text-slate-900 placeholder:text-slate-500 focus:outline-none focus:border-[rgba(45,68,204,0.58)] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                       />
                       <button
                         onClick={startCall}
                         disabled={isRunning}
-                        className="h-10 w-10 rounded-xl border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 hover:bg-indigo-500/20 transition-colors disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center"
+                        className="h-10 w-10 rounded-xl border border-[rgba(45,68,204,0.34)] bg-[rgba(45,68,204,0.12)] text-[rgb(70,118,228)] hover:bg-[rgba(45,68,204,0.2)] transition-colors disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center"
                         aria-label="Iniciar llamada"
                       >
                         <Phone size={14} />
@@ -621,34 +621,34 @@ export default function DemoSection() {
                       whileHover={!isRunning ? { scale: 1.01 } : {}}
                       whileTap={!isRunning ? { scale: 0.99 } : {}}
                       disabled={isRunning}
-                      className="relative overflow-hidden w-full rounded-xl border border-indigo-500/20 bg-gradient-to-br from-indigo-500/[0.14] via-indigo-500/[0.06] to-transparent px-4 py-3 flex items-center gap-3 text-left disabled:opacity-80 disabled:cursor-not-allowed"
+                      className="relative overflow-hidden w-full rounded-xl border border-[rgba(45,68,204,0.24)] bg-gradient-to-br from-[rgba(45,68,204,0.14)] via-[rgba(115,175,255,0.16)] to-transparent px-4 py-3 flex items-center gap-3 text-left disabled:opacity-80 disabled:cursor-not-allowed"
                     >
                       <motion.div
                         animate={
                           isRunning
-                            ? { boxShadow: ["0 0 0 0 rgba(99,102,241,0.45)", "0 0 0 12px rgba(99,102,241,0)"] }
-                            : { boxShadow: "0 0 0 0 rgba(99,102,241,0)" }
+                            ? { boxShadow: ["0 0 0 0 rgba(45,68,204,0.45)", "0 0 0 12px rgba(45,68,204,0)"] }
+                            : { boxShadow: "0 0 0 0 rgba(45,68,204,0)" }
                         }
                         transition={isRunning ? { duration: 1.2, repeat: Infinity } : {}}
-                        className="w-11 h-11 rounded-full bg-indigo-500/25 border border-indigo-500/40 flex items-center justify-center shrink-0"
+                        className="w-11 h-11 rounded-full bg-[rgba(45,68,204,0.25)] border border-[rgba(45,68,204,0.42)] flex items-center justify-center shrink-0"
                       >
                         <motion.div
                           animate={phase === "ringing" ? { rotate: [0, -18, 18, -18, 18, 0] } : {}}
                           transition={phase === "ringing" ? { duration: 0.55, repeat: Infinity, repeatDelay: 0.4 } : {}}
                         >
-                          <Phone size={18} className="text-indigo-200" />
+                          <Phone size={18} className="text-[rgb(80,127,232)]" />
                         </motion.div>
                       </motion.div>
 
                       <div className="min-w-0">
-                        <p className="text-[13px] text-white font-semibold leading-tight">
+                        <p className="text-[13px] text-slate-900 font-semibold leading-tight">
                           {phase === "done"
                             ? "Llamada completada. Tocá para repetir."
                             : isRunning
                             ? "Llamando ahora..."
                             : "Tocá esta llamada para ejecutar la demo"}
                         </p>
-                        <p className="text-[11px] text-indigo-200/80 font-mono truncate mt-1">
+                        <p className="text-[11px] text-[rgba(80,127,232,0.8)] font-sans truncate mt-1">
                           {phoneInput.trim() || "Ingresá un teléfono para continuar"}
                         </p>
                       </div>
@@ -666,10 +666,10 @@ export default function DemoSection() {
 
                   <div className="grid grid-cols-2 gap-3 mb-5">
                     {/* In Transit column */}
-                    <div className="bg-white/[0.02] border border-white/[0.05] rounded-xl p-3.5">
+                    <div className="bg-[rgba(45,68,204,0.05)] border border-[rgba(45,68,204,0.16)] rounded-xl p-3.5">
                       <div className="flex items-center gap-1.5 mb-3.5">
-                        <div className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
-                        <span className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[rgb(45,68,204)]" />
+                        <span className="text-[10px] font-semibold text-slate-600 uppercase tracking-wider">
                           En Tránsito
                         </span>
                       </div>
@@ -681,19 +681,19 @@ export default function DemoSection() {
                             initial={{ opacity: 1 }}
                             exit={{ opacity: 0, x: 40, scale: 0.85 }}
                             transition={{ type: "spring", stiffness: 250, damping: 25 }}
-                            className={`p-3 rounded-lg bg-white/[0.03] border transition-all duration-500 ${
+                            className={`p-3 rounded-lg bg-[rgba(45,68,204,0.08)] border transition-all duration-500 ${
                               isRunning
-                                ? "border-indigo-500/30 shadow-[0_0_15px_rgba(99,102,241,0.1)]"
-                                : "border-indigo-500/15"
+                                ? "border-[rgba(45,68,204,0.34)] shadow-[0_0_15px_rgba(45,68,204,0.1)]"
+                                : "border-[rgba(45,68,204,0.22)]"
                             }`}
                           >
                             <div className="flex items-center gap-1.5 mb-1">
-                              <Truck size={11} className="text-indigo-400" />
-                              <span className="text-[10px] font-semibold text-white/90">
+                              <Truck size={11} className="text-[rgb(45,68,204)]" />
+                              <span className="text-[10px] font-semibold text-slate-900">
                                 Carlos M.
                               </span>
                             </div>
-                            <span className="text-[9px] text-gray-500 font-mono">
+                            <span className="text-[9px] text-slate-500 font-sans">
                               BUE → CBA
                             </span>
                             {isRunning && (
@@ -705,9 +705,9 @@ export default function DemoSection() {
                                 <motion.div
                                   animate={{ opacity: [1, 0.3, 1] }}
                                   transition={{ duration: 1, repeat: Infinity }}
-                                  className="w-1 h-1 rounded-full bg-indigo-500"
+                                  className="w-1 h-1 rounded-full bg-[rgb(45,68,204)]"
                                 />
-                                <span className="text-[8px] text-indigo-400 font-medium">
+                                <span className="text-[8px] text-[rgb(45,68,204)] font-medium">
                                   IA verificando...
                                 </span>
                               </motion.div>
@@ -716,17 +716,17 @@ export default function DemoSection() {
                         )}
                       </AnimatePresence>
                       {cardColumn === "delivered" && (
-                        <div className="h-[72px] border border-dashed border-white/[0.04] rounded-lg flex items-center justify-center">
-                          <span className="text-[9px] text-gray-700">Vacío</span>
+                        <div className="h-[72px] border border-dashed border-[rgba(45,68,204,0.14)] rounded-lg flex items-center justify-center">
+                          <span className="text-[9px] text-slate-400">Vacío</span>
                         </div>
                       )}
                     </div>
 
                     {/* Delivered column */}
-                    <div className="bg-white/[0.02] border border-white/[0.05] rounded-xl p-3.5">
+                    <div className="bg-[rgba(45,68,204,0.05)] border border-[rgba(45,68,204,0.16)] rounded-xl p-3.5">
                       <div className="flex items-center gap-1.5 mb-3.5">
                         <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                        <span className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider">
+                        <span className="text-[10px] font-semibold text-slate-600 uppercase tracking-wider">
                           Entregado
                         </span>
                       </div>
@@ -738,15 +738,15 @@ export default function DemoSection() {
                             initial={{ opacity: 0, x: -40, scale: 0.85 }}
                             animate={{ opacity: 1, x: 0, scale: 1 }}
                             transition={{ type: "spring", stiffness: 250, damping: 25 }}
-                            className="p-3 rounded-lg bg-white/[0.03] border border-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.08)]"
+                            className="p-3 rounded-lg bg-[rgba(45,68,204,0.08)] border border-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.08)]"
                           >
                             <div className="flex items-center gap-1.5 mb-1">
                               <CheckCircle2 size={11} className="text-emerald-400" />
-                              <span className="text-[10px] font-semibold text-white/90">
+                              <span className="text-[10px] font-semibold text-slate-900">
                                 Carlos M.
                               </span>
                             </div>
-                            <span className="text-[9px] text-gray-500 font-mono">
+                            <span className="text-[9px] text-slate-500 font-sans">
                               BUE → CBA
                             </span>
                             <div className="flex items-center gap-1 mt-2">
@@ -759,8 +759,8 @@ export default function DemoSection() {
                         )}
                       </AnimatePresence>
                       {cardColumn === "transit" && (
-                        <div className="h-[72px] border border-dashed border-white/[0.04] rounded-lg flex items-center justify-center">
-                          <span className="text-[9px] text-gray-700">
+                        <div className="h-[72px] border border-dashed border-[rgba(45,68,204,0.14)] rounded-lg flex items-center justify-center">
+                          <span className="text-[9px] text-slate-400">
                             Esperando...
                           </span>
                         </div>
@@ -811,22 +811,22 @@ export default function DemoSection() {
                         animate={{ opacity: 1, y: 0 }}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className="w-full py-4 rounded-2xl text-white font-semibold text-[15px] flex items-center justify-center gap-3 border border-indigo-500/30 bg-indigo-500/5 hover:bg-indigo-500/10 transition-all"
+                        className="w-full py-4 rounded-2xl text-[rgb(45,68,204)] font-semibold text-[15px] flex items-center justify-center gap-3 border border-[rgba(45,68,204,0.34)] bg-[rgba(45,68,204,0.08)] hover:bg-[rgba(45,68,204,0.12)] transition-all"
                       >
-                        <RotateCcw size={16} className="text-indigo-400" />
+                        <RotateCcw size={16} className="text-[rgb(45,68,204)]" />
                         Ejecutar de nuevo
                       </motion.button>
                     ) : (
-                      <div className="w-full py-4 rounded-2xl border border-white/[0.05] bg-white/[0.02] flex items-center justify-center gap-3">
+                      <div className="w-full py-4 rounded-2xl border border-[rgba(45,68,204,0.16)] bg-[rgba(45,68,204,0.05)] flex items-center justify-center gap-3">
                         <motion.div
                           animate={{ opacity: [1, 0.3, 1] }}
                           transition={{ duration: 1.5, repeat: Infinity }}
-                          className="w-2 h-2 rounded-full bg-indigo-500"
+                          className="w-2 h-2 rounded-full bg-[rgb(45,68,204)]"
                         />
-                        <span className="text-[13px] text-gray-400 font-medium">
+                        <span className="text-[13px] text-slate-600 font-medium">
                           Llamada en curso...
                         </span>
-                        <span className="text-[12px] text-gray-500 font-mono">
+                        <span className="text-[12px] text-slate-500 font-sans">
                           {formatDuration(callDuration)}
                         </span>
                       </div>

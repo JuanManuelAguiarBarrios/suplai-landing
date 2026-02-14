@@ -85,17 +85,17 @@ export default function ProductSection() {
               }}
               className="gradient-border p-8 group cursor-default"
             >
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500/[0.08] to-violet-500/[0.08] flex items-center justify-center mb-6 group-hover:from-indigo-500/[0.15] group-hover:to-violet-500/[0.15] transition-all duration-500">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[rgba(45,68,204,0.08)] to-[rgba(115,175,255,0.08)] flex items-center justify-center mb-6 group-hover:from-[rgba(45,68,204,0.15)] group-hover:to-[rgba(115,175,255,0.15)] transition-all duration-500">
                 <feature.icon
                   size={24}
                   strokeWidth={1.5}
-                  className="text-indigo-400 group-hover:text-indigo-300 transition-colors duration-500"
+                  className="text-[rgb(45,68,204)] group-hover:text-[rgb(70,118,228)] transition-colors duration-500"
                 />
               </div>
-              <h3 className="text-[16px] font-semibold text-white mb-3 leading-snug">
+              <h3 className="text-[16px] font-semibold text-slate-900 mb-3 leading-snug">
                 {feature.title}
               </h3>
-              <p className="text-[13px] text-gray-500 leading-relaxed">
+              <p className="text-[13px] text-slate-500 leading-relaxed">
                 {feature.description}
               </p>
             </motion.div>

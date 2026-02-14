@@ -27,7 +27,7 @@ export default function LogosCarousel() {
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ duration: 0.8 }}
       >
-        <p className="text-center text-xs font-medium text-gray-500 uppercase tracking-[0.2em] mb-10">
+        <p className="text-center text-xs font-medium text-slate-500 uppercase tracking-[0.2em] mb-10">
           Empresas que confían en la automatización
         </p>
 
@@ -39,12 +39,12 @@ export default function LogosCarousel() {
                 className="flex-shrink-0 mx-10 flex items-center justify-center"
               >
                 <div className="flex items-center gap-2.5 opacity-30 hover:opacity-60 transition-opacity duration-500">
-                  <div className="w-8 h-8 rounded-lg bg-white/[0.04] border border-white/[0.06] flex items-center justify-center">
-                    <span className="text-[10px] font-bold text-gray-400">
+                  <div className="w-8 h-8 rounded-lg bg-[rgba(45,68,204,0.1)] border border-[rgba(45,68,204,0.18)] flex items-center justify-center">
+                    <span className="text-[10px] font-bold text-slate-600">
                       {logo.charAt(0)}
                     </span>
                   </div>
-                  <span className="text-sm font-medium text-gray-400 whitespace-nowrap">
+                  <span className="text-sm font-medium text-slate-600 whitespace-nowrap">
                     {logo}
                   </span>
                 </div>

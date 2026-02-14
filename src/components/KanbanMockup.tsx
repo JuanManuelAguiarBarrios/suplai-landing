@@ -6,7 +6,7 @@ import { Phone, Truck, CheckCircle2, Clock } from "lucide-react";
 
 const columns = [
   { id: "pending", title: "Pendiente", color: "#F59E0B" },
-  { id: "transit", title: "En Tránsito", color: "#6366F1" },
+  { id: "transit", title: "En Tránsito", color: "rgb(45, 68, 204)" },
   { id: "delivered", title: "Entregado", color: "#10B981" },
 ];
 
@@ -70,7 +70,7 @@ export default function KanbanMockup() {
   return (
     <div className="relative">
       {/* Outer glow */}
-      <div className="absolute -inset-4 bg-gradient-to-r from-indigo-600/15 via-violet-600/10 to-indigo-600/15 rounded-3xl blur-2xl" />
+      <div className="absolute -inset-4 bg-gradient-to-r from-[rgba(45,68,204,0.15)] via-[rgba(115,175,255,0.14)] to-[rgba(45,68,204,0.15)] rounded-3xl blur-2xl" />
 
       <div className="relative glass-card p-5 md:p-6">
         {/* Top bar */}
@@ -80,7 +80,7 @@ export default function KanbanMockup() {
             <div className="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]" />
             <div className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
           </div>
-          <span className="text-[10px] text-gray-500 font-mono tracking-wider">
+          <span className="text-[10px] text-slate-500 font-sans tracking-wider">
             suplai.app/dashboard
           </span>
           <AnimatePresence>
@@ -91,17 +91,17 @@ export default function KanbanMockup() {
                 exit={{ opacity: 0, scale: 0.8 }}
                 className="flex items-center gap-1.5"
               >
-                <Phone size={10} className="text-indigo-400" />
+                <Phone size={10} className="text-[rgb(45,68,204)]" />
                 <div className="flex items-end gap-[2px] h-3.5">
                   {[0, 1, 2, 3, 4].map((i) => (
                     <motion.div
                       key={i}
-                      className="w-[3px] bg-indigo-400 rounded-full waveform-bar"
+                      className="w-[3px] bg-[rgb(115,175,255)] rounded-full waveform-bar"
                       style={{ animationDelay: `${i * 0.1}s` }}
                     />
                   ))}
                 </div>
-                <span className="text-[9px] text-indigo-400 font-medium">
+                <span className="text-[9px] text-[rgb(45,68,204)] font-medium">
                   IA activa
                 </span>
               </motion.div>
@@ -120,17 +120,17 @@ export default function KanbanMockup() {
                 delay: 0.6 + colIdx * 0.12,
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
-              className="bg-white/[0.015] rounded-xl p-2.5"
+              className="bg-[rgba(45,68,204,0.04)] rounded-xl p-2.5"
             >
               <div className="flex items-center gap-1.5 mb-2.5 px-1">
                 <div
                   className="w-1.5 h-1.5 rounded-full"
                   style={{ backgroundColor: col.color }}
                 />
-                <span className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider">
+                <span className="text-[10px] font-semibold text-slate-600 uppercase tracking-wider">
                   {col.title}
                 </span>
-                <span className="text-[9px] text-gray-600 ml-auto font-mono">
+                <span className="text-[9px] text-slate-500 ml-auto font-sans">
                   {cards.filter((c) => c.column === col.id).length}
                 </span>
               </div>
@@ -153,19 +153,19 @@ export default function KanbanMockup() {
                         }}
                         className={`p-2.5 rounded-lg transition-all duration-300 ${
                           callingCard === card.id
-                            ? "bg-indigo-500/10 border border-indigo-500/30 shadow-[0_0_20px_rgba(99,102,241,0.15)]"
-                            : "bg-white/[0.03] border border-white/[0.04]"
+                            ? "bg-[rgba(45,68,204,0.12)] border border-[rgba(45,68,204,0.34)] shadow-[0_0_20px_rgba(45,68,204,0.18)]"
+                            : "bg-[rgba(45,68,204,0.08)] border border-[rgba(45,68,204,0.14)]"
                         }`}
                       >
                         <div className="flex items-center justify-between mb-1">
-                          <span className="text-[10px] font-semibold text-white/90">
+                          <span className="text-[10px] font-semibold text-slate-900">
                             {card.driver}
                           </span>
                           {callingCard === card.id && (
                             <motion.div
                               initial={{ scale: 0 }}
                               animate={{ scale: 1 }}
-                              className="pulse-glow w-1.5 h-1.5 rounded-full bg-indigo-400"
+                              className="pulse-glow w-1.5 h-1.5 rounded-full bg-[rgb(45,68,204)]"
                             />
                           )}
                         </div>
@@ -174,7 +174,7 @@ export default function KanbanMockup() {
                             <Clock size={9} className="text-amber-500/70" />
                           )}
                           {card.column === "transit" && (
-                            <Truck size={9} className="text-indigo-400/70" />
+                            <Truck size={9} className="text-[rgba(45,68,204,0.7)]" />
                           )}
                           {card.column === "delivered" && (
                             <CheckCircle2
@@ -182,7 +182,7 @@ export default function KanbanMockup() {
                               className="text-emerald-400/70"
                             />
                           )}
-                          <span className="text-[9px] text-gray-500 font-mono">
+                          <span className="text-[9px] text-slate-500 font-sans">
                             {card.route}
                           </span>
                         </div>

@@ -18,7 +18,7 @@ export default function CTASection() {
             opacity: [0.08, 0.12, 0.08],
           }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-600 rounded-full blur-[200px]"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[rgb(45,68,204)] rounded-full blur-[200px]"
         />
         <motion.div
           animate={{
@@ -26,7 +26,7 @@ export default function CTASection() {
             opacity: [0.06, 0.1, 0.06],
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-600 rounded-full blur-[160px]"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[rgb(115,175,255)] rounded-full blur-[160px]"
         />
       </div>
 
@@ -40,7 +40,7 @@ export default function CTASection() {
             Dejá que la IA haga el{" "}
             <span className="gradient-text">seguimiento por vos</span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-400 mb-12 max-w-xl mx-auto font-light leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-600 mb-12 max-w-xl mx-auto font-light leading-relaxed">
             Sumate a las empresas que ya automatizan sus operaciones logísticas
             con Suplai.
           </p>
@@ -58,7 +58,7 @@ export default function CTASection() {
             />
           </motion.a>
 
-          <p className="text-[12px] text-gray-600 mt-8 tracking-wide">
+          <p className="text-[12px] text-slate-500 mt-8 tracking-wide">
             Sin compromiso · Respuesta en 24hs · Demo personalizada
           </p>
         </motion.div>

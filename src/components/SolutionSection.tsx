@@ -45,7 +45,7 @@ export default function SolutionSection() {
       <div className="section-divider mb-32" />
 
       {/* Background accent */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[400px] bg-indigo-600/[0.04] rounded-full blur-[140px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[400px] bg-[rgba(45,68,204,0.08)] rounded-full blur-[140px]" />
 
       <div className="relative max-w-5xl mx-auto">
         <motion.div
@@ -64,9 +64,9 @@ export default function SolutionSection() {
         {/* Flow steps */}
         <div className="relative">
           {/* Connecting line - desktop */}
-          <div className="absolute top-[52px] left-[12.5%] right-[12.5%] h-px bg-white/[0.04] hidden lg:block" />
+          <div className="absolute top-[52px] left-[12.5%] right-[12.5%] h-px bg-[rgba(45,68,204,0.1)] hidden lg:block" />
           <motion.div
-            className="absolute top-[52px] left-[12.5%] h-px bg-gradient-to-r from-indigo-500 to-violet-500 hidden lg:block origin-left"
+            className="absolute top-[52px] left-[12.5%] h-px bg-gradient-to-r from-[rgb(45,68,204)] to-[rgb(115,175,255)] hidden lg:block origin-left"
             initial={{ scaleX: 0 }}
             animate={
               isInView
@@ -103,18 +103,18 @@ export default function SolutionSection() {
                     transition={{ duration: 1.5, repeat: isCurrent ? Infinity : 0 }}
                     className={`relative w-[104px] h-[104px] rounded-3xl flex items-center justify-center mb-7 transition-all duration-700 ${
                       isActive
-                        ? "bg-gradient-to-br from-indigo-500/20 to-violet-600/20 border border-indigo-500/30"
-                        : "bg-white/[0.02] border border-white/[0.06]"
+                        ? "bg-gradient-to-br from-[rgba(45,68,204,0.2)] to-[rgba(115,175,255,0.2)] border border-[rgba(45,68,204,0.34)]"
+                        : "bg-[rgba(45,68,204,0.05)] border border-[rgba(45,68,204,0.18)]"
                     }`}
                   >
                     {isCurrent && (
-                      <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-500/10 to-violet-500/10 animate-pulse" />
+                      <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[rgba(45,68,204,0.1)] to-[rgba(115,175,255,0.1)] animate-pulse" />
                     )}
                     <step.icon
                       size={32}
                       strokeWidth={1.5}
                       className={`relative z-10 transition-colors duration-500 ${
-                        isActive ? "text-indigo-400" : "text-gray-600"
+                        isActive ? "text-[rgb(45,68,204)]" : "text-slate-500"
                       }`}
                     />
                   </motion.div>
@@ -122,7 +122,7 @@ export default function SolutionSection() {
                   {/* Step number */}
                   <span
                     className={`text-[10px] font-bold uppercase tracking-[0.15em] mb-2 transition-colors duration-500 ${
-                      isActive ? "text-indigo-400" : "text-gray-700"
+                      isActive ? "text-[rgb(45,68,204)]" : "text-slate-400"
                     }`}
                   >
                     Paso {idx + 1}
@@ -130,12 +130,12 @@ export default function SolutionSection() {
 
                   <h3
                     className={`text-[15px] font-semibold mb-2 transition-colors duration-500 ${
-                      isActive ? "text-white" : "text-gray-600"
+                      isActive ? "text-slate-900" : "text-slate-500"
                     }`}
                   >
                     {step.title}
                   </h3>
-                  <p className="text-[13px] text-gray-500 leading-relaxed max-w-[200px]">
+                  <p className="text-[13px] text-slate-500 leading-relaxed max-w-[200px]">
                     {step.description}
                   </p>
                 </motion.div>
