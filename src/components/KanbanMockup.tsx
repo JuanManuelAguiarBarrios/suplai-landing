@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { m as motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Phone, Truck, CheckCircle2, Clock } from "lucide-react";
 

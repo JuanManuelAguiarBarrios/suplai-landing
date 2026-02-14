@@ -1,14 +1,18 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import LogosCarousel from "@/components/LogosCarousel";
-import ProblemSection from "@/components/ProblemSection";
-import SolutionSection from "@/components/SolutionSection";
-import CapabilitiesCarouselSection from "@/components/CapabilitiesCarouselSection";
-import DemoSection from "@/components/DemoSection";
-import AudienceSection from "@/components/AudienceSection";
-import MetricsSection from "@/components/MetricsSection";
-import CTASection from "@/components/CTASection";
+import dynamic from "next/dynamic";
 import Footer from "@/components/Footer";
+
+const LogosCarousel = dynamic(() => import("@/components/LogosCarousel"));
+const ProblemSection = dynamic(() => import("@/components/ProblemSection"));
+const SolutionSection = dynamic(() => import("@/components/SolutionSection"));
+const CapabilitiesCarouselSection = dynamic(
+  () => import("@/components/CapabilitiesCarouselSection")
+);
+const DemoSection = dynamic(() => import("@/components/DemoSection"));
+const MetricsSection = dynamic(() => import("@/components/MetricsSection"));
+const AudienceSection = dynamic(() => import("@/components/AudienceSection"));
+const CTASection = dynamic(() => import("@/components/CTASection"));
 
 export default function Home() {
   return (

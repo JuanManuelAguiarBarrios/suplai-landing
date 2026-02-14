@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { m as motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -44,6 +44,7 @@ export default function Navbar() {
                 alt="Suplai"
                 width={436}
                 height={126}
+                sizes="(max-width: 768px) 140px, 180px"
                 priority
                 className="h-11 w-auto shrink-0"
               />

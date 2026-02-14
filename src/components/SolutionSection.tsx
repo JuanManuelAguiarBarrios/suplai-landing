@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { m as motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Brain, LayoutDashboard, Mic, Phone } from "lucide-react";
 

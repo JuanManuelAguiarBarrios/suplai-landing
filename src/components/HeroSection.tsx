@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m as motion, useReducedMotion } from "framer-motion";
 import KanbanMockup from "./KanbanMockup";
 
 const wordVariants = {
@@ -19,46 +19,63 @@ const wordVariants = {
 
 export default function HeroSection() {
   const titleWords = "Automatizá tus operaciones logísticas con".split(" ");
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden grain-overlay">
       {/* Animated gradient orbs - more expressive */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          animate={{
-            x: [0, 50, -30, 0],
-            y: [0, -60, 30, 0],
-            scale: [1, 1.2, 0.9, 1],
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-40 left-1/4 w-[800px] h-[800px] bg-[rgba(45,68,204,0.08)] rounded-full blur-[160px]"
+          animate={
+            shouldReduceMotion
+              ? undefined
+              : {
+                  x: [0, 50, -30, 0],
+                  y: [0, -60, 30, 0],
+                  scale: [1, 1.2, 0.9, 1],
+                }
+          }
+          transition={shouldReduceMotion ? undefined : { duration: 20, repeat: Infinity, ease: "linear" }}
+          className="absolute -top-36 left-1/4 w-[700px] h-[700px] bg-[rgba(45,68,204,0.08)] rounded-full blur-[120px]"
         />
         <motion.div
-          animate={{
-            x: [0, -60, 40, 0],
-            y: [0, 40, -40, 0],
-            scale: [1, 0.85, 1.2, 1],
-          }}
-          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute -bottom-48 right-1/4 w-[700px] h-[700px] bg-[rgba(115,175,255,0.1)] rounded-full blur-[140px]"
+          animate={
+            shouldReduceMotion
+              ? undefined
+              : {
+                  x: [0, -60, 40, 0],
+                  y: [0, 40, -40, 0],
+                  scale: [1, 0.85, 1.2, 1],
+                }
+          }
+          transition={shouldReduceMotion ? undefined : { duration: 25, repeat: Infinity, ease: "linear" }}
+          className="absolute -bottom-44 right-1/4 w-[620px] h-[620px] bg-[rgba(115,175,255,0.1)] rounded-full blur-[105px]"
         />
         <motion.div
-          animate={{
-            x: [0, 30, -40, 0],
-            y: [0, -30, 50, 0],
-          }}
-          transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-[rgba(90,120,240,0.07)] rounded-full blur-[120px]"
+          animate={
+            shouldReduceMotion
+              ? undefined
+              : {
+                  x: [0, 30, -40, 0],
+                  y: [0, -30, 50, 0],
+                }
+          }
+          transition={shouldReduceMotion ? undefined : { duration: 18, repeat: Infinity, ease: "linear" }}
+          className="absolute top-1/3 right-0 w-[420px] h-[420px] bg-[rgba(90,120,240,0.07)] rounded-full blur-[90px]"
         />
         {/* Extra decorative orb */}
         <motion.div
-          animate={{
-            x: [0, -20, 30, 0],
-            y: [0, 40, -20, 0],
-            scale: [1, 1.1, 0.95, 1],
-          }}
-          transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-          className="absolute top-0 right-1/3 w-[300px] h-[300px] bg-[rgba(45,68,204,0.05)] rounded-full blur-[100px]"
+          animate={
+            shouldReduceMotion
+              ? undefined
+              : {
+                  x: [0, -20, 30, 0],
+                  y: [0, 40, -20, 0],
+                  scale: [1, 1.1, 0.95, 1],
+                }
+          }
+          transition={shouldReduceMotion ? undefined : { duration: 22, repeat: Infinity, ease: "linear" }}
+          className="absolute top-0 right-1/3 w-[260px] h-[260px] bg-[rgba(45,68,204,0.05)] rounded-full blur-[72px]"
         />
       </div>
 
@@ -194,7 +211,7 @@ export default function HeroSection() {
             ease: [0.22, 1, 0.36, 1],
           }}
           style={{ perspective: 1000 }}
-          className="animate-float"
+          className={shouldReduceMotion ? "" : "animate-float"}
         >
           <KanbanMockup />
         </motion.div>

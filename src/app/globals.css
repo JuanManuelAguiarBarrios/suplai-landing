@@ -464,3 +464,22 @@ h6 {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(45, 68, 204, 0.42);
 }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .animate-float,
+  .animate-scroll-left,
+  .animate-line-flow,
+  .waveform-bar {
+    animation: none !important;
+  }
+}

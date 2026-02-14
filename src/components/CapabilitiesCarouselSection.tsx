@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useMemo, useState } from "react";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import {
   ChevronLeft,
   ChevronRight,
@@ -79,8 +79,8 @@ export default function CapabilitiesCarouselSection() {
       className="relative py-28 md:py-32 overflow-hidden bg-[#070d22]"
     >
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-40 -left-20 w-[520px] h-[520px] rounded-full bg-[rgba(45,68,204,0.32)] blur-[160px]" />
-        <div className="absolute -bottom-44 right-0 w-[580px] h-[580px] rounded-full bg-[rgba(115,175,255,0.25)] blur-[180px]" />
+        <div className="absolute -top-40 -left-20 w-[520px] h-[520px] rounded-full bg-[rgba(45,68,204,0.32)] blur-[120px]" />
+        <div className="absolute -bottom-44 right-0 w-[580px] h-[580px] rounded-full bg-[rgba(115,175,255,0.25)] blur-[130px]" />
         <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:42px_42px]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.08),transparent_58%)]" />
       </div>

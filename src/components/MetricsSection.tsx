@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView, useSpring, useTransform } from "framer-motion";
+import { m as motion, useInView, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Eye, ShieldCheck, TrendingDown } from "lucide-react";
 
@@ -80,8 +80,8 @@ export default function MetricsSection() {
       ref={ref}
     >
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-44 left-1/4 w-[520px] h-[520px] rounded-full bg-[rgba(45,68,204,0.38)] blur-[170px]" />
-        <div className="absolute -bottom-48 right-0 w-[560px] h-[560px] rounded-full bg-[rgba(115,175,255,0.25)] blur-[190px]" />
+        <div className="absolute -top-44 left-1/4 w-[520px] h-[520px] rounded-full bg-[rgba(45,68,204,0.38)] blur-[130px]" />
+        <div className="absolute -bottom-48 right-0 w-[560px] h-[560px] rounded-full bg-[rgba(115,175,255,0.25)] blur-[140px]" />
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:48px_48px]" />
       </div>
 

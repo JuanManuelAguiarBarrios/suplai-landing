@@ -24,6 +24,7 @@ export default function Footer() {
               alt="Suplai"
               width={436}
               height={126}
+              sizes="(max-width: 768px) 130px, 160px"
               className="h-9 w-auto shrink-0 group-hover:opacity-80 transition-opacity duration-300"
             />
           </a>
