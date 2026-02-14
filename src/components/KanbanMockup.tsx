@@ -18,10 +18,10 @@ interface Card {
 }
 
 const initialCards: Card[] = [
-  { id: "1", driver: "Carlos M.", route: "BUE → CBA", column: "pending" },
-  { id: "2", driver: "Laura G.", route: "ROS → MZA", column: "transit" },
-  { id: "3", driver: "Diego R.", route: "MDQ → BUE", column: "delivered" },
-  { id: "4", driver: "Ana P.", route: "CBA → TUC", column: "pending" },
+  { id: "1", driver: "Carlos M.", route: "MVD → MAL", column: "pending" },
+  { id: "2", driver: "Laura G.", route: "PAY → ART", column: "transit" },
+  { id: "3", driver: "Diego R.", route: "FLO → ROCH", column: "delivered" },
+  { id: "4", driver: "Ana P.", route: "SAL → MVD", column: "pending" },
 ];
 
 export default function KanbanMockup() {

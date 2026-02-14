@@ -459,7 +459,7 @@ export default function DemoSection() {
                               <div className="bg-[rgba(45,68,204,0.04)] border border-[rgba(45,68,204,0.12)] rounded-xl rounded-tl-sm px-3.5 py-2.5">
                                 <p className="text-[11px] text-[rgba(80,127,232,0.9)] leading-relaxed">
                                   <TypewriterText
-                                    text='Hola Carlos, te llamo de Suplai. ¿Podés confirmar el estado de tu envío BUE → CBA?'
+                                    text='Hola Carlos, te llamo de Suplai. ¿Podés confirmar el estado de tu envío MVD → MAL?'
                                     speed={22}
                                   />
                                 </p>
@@ -479,7 +479,7 @@ export default function DemoSection() {
                             <div className="bg-[rgba(45,68,204,0.08)] border border-[rgba(45,68,204,0.12)] rounded-xl rounded-tr-sm px-3.5 py-2.5 max-w-[85%]">
                               <p className="text-[11px] text-slate-600 leading-relaxed">
                                 <TypewriterText
-                                  text='Sí, ya entregué todo hace 20 minutos en el depósito de Córdoba.'
+                                  text='Sí, ya entregué todo hace 20 minutos en el depósito de Maldonado.'
                                   speed={28}
                                 />
                               </p>
@@ -677,7 +677,7 @@ export default function DemoSection() {
                               </span>
                             </div>
                             <span className="text-[9px] text-slate-400 font-sans">
-                              BUE → CBA
+                              MVD → MAL
                             </span>
                             {isRunning && (
                               <motion.div
@@ -730,7 +730,7 @@ export default function DemoSection() {
                               </span>
                             </div>
                             <span className="text-[9px] text-slate-400 font-sans">
-                              BUE → CBA
+                              MVD → MAL
                             </span>
                             <div className="flex items-center gap-1 mt-2">
                               <div className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
